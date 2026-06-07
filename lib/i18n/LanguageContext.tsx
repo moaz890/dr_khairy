@@ -8,12 +8,12 @@ import {
   useCallback,
   type ReactNode,
 } from "react";
-import { translations, type Lang } from "./translations";
+import { translations, type Lang, type Translations } from "./translations";
 
 interface LanguageContextType {
   lang: Lang;
   setLang: (lang: Lang) => void;
-  t: typeof translations["en"];
+  t: Translations;
   dir: "ltr" | "rtl";
   isAr: boolean;
 }

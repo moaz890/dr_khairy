@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { blogPosts, mythFacts, blogCategoryKeys } from "@/lib/data/blog";
+import { blogPosts, mythFacts, blogCategoryKeys, type BlogCategoryKey } from "@/lib/data/blog";
 import { Plus, Edit, Trash2, Eye, EyeOff, Check, X, FileText, Tag, ChevronDown, ChevronUp } from "lucide-react";
+
+type BlogPostCategory = Exclude<BlogCategoryKey, "all">;
 
 const statuses = ["published", "draft"] as const;
 
@@ -12,7 +14,12 @@ export default function BlogCMSPage() {
   );
   const [myths, setMyths] = useState(mythFacts);
   const [showForm, setShowForm] = useState(false);
-  const [form, setForm] = useState({ title: "", category: blogCategoryKeys[1], excerpt: "", content: "" });
+  const [form, setForm] = useState<{ title: string; category: BlogPostCategory; excerpt: string; content: string }>({
+    title: "",
+    category: blogCategoryKeys[1] as BlogPostCategory,
+    excerpt: "",
+    content: "",
+  });
 
   const toggleStatus = (id: string) => {
     setPosts(posts.map((p) =>
@@ -57,7 +64,7 @@ export default function BlogCMSPage() {
               <select
                 className="input-field"
                 value={form.category}
-                onChange={(e) => setForm({ ...form, category: e.target.value })}
+                onChange={(e) => setForm({ ...form, category: e.target.value as BlogPostCategory })}
               >
                 {blogCategoryKeys.slice(1).map((cat) => <option key={cat} value={cat}>{cat}</option>)}
               </select>
@@ -92,14 +99,14 @@ export default function BlogCMSPage() {
                     id: `b${Date.now()}`,
                     title: { en: form.title, ar: form.title },
                     excerpt: { en: form.excerpt, ar: form.excerpt },
-                    category: form.category as typeof blogCategoryKeys[number],
+                    category: form.category,
                     date: new Date().toISOString().split("T")[0],
                     readMinutes: 5,
                     featured: false,
                     gradientClass: "from-cyan-800 to-cyan-700",
                     status: "published",
                   }, ...posts]);
-                  setForm({ title: "", category: blogCategoryKeys[1], excerpt: "", content: "" });
+                  setForm({ title: "", category: blogCategoryKeys[1] as BlogPostCategory, excerpt: "", content: "" });
                   setShowForm(false);
                 }
               }}

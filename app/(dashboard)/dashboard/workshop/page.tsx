@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { upcomingWorkshop } from "@/lib/data/workshop";
-import { Calendar, Users, HelpCircle, CheckCircle, X, Plus, Toggle, Eye, EyeOff } from "lucide-react";
+import { Calendar, Users, HelpCircle, CheckCircle, X, Plus, Eye, EyeOff } from "lucide-react";
 
 const mockQuestions = [
   { id: "q1", question: "What are your criteria for recommending FESS versus continued medical therapy in chronic rhinosinusitis?", approved: false, date: "2026-06-01" },
