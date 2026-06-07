@@ -1,0 +1,268 @@
+@import "tailwindcss";
+
+/* =========================================================
+   DESIGN SYSTEM — Dr. Rabie Khairy Medical Platform
+   Petrol Blue / Teal Theme
+   ========================================================= */
+
+@layer base {
+  :root {
+    /* ── Petrol Blue palette ── */
+    --petrol-950: #0a2f35;
+    --petrol-900: #164e63;   /* cyan-900 — dark backgrounds, sidebar */
+    --petrol-800: #155e75;   /* cyan-800 */
+    --petrol-700: #0e7490;   /* cyan-700 — interactive elements */
+    --petrol-500: #06b6d4;   /* cyan-500 — light accents */
+    --petrol-100: #cffafe;   /* cyan-100 */
+    --petrol-50:  #ecfeff;   /* cyan-50  */
+
+    /* ── Gold accent (unchanged) ── */
+    --gold-600:  #b45309;
+    --gold-500:  #d97706;
+    --gold-400:  #d4af37;
+
+    /* ── Primary alias ── */
+    --color-primary: var(--petrol-900);
+
+    /* ── Neutrals ── */
+    --cream-50:  #fafaf9;
+    --slate-50:  #f8fafc;
+    --charcoal:  #334155;
+    --border:    #e2e8f0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--petrol-700);
+    outline-offset: 2px;
+  }
+
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  * {
+    @apply border-slate-200;
+    box-sizing: border-box;
+  }
+
+  /* ── Font switching: English = Inter, Arabic = Cairo ── */
+  body {
+    color: var(--charcoal);
+    background: #ffffff;
+    font-family: var(--font-inter), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html.lang-ar body {
+    font-family: var(--font-cairo), system-ui, sans-serif;
+    letter-spacing: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--petrol-950);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  /* RTL helpers */
+  html[dir="rtl"] .rtl-flip {
+    transform: scaleX(-1);
+  }
+}
+
+@layer components {
+  /* ── Navigation ── */
+  .nav-link {
+    @apply text-sm font-medium text-slate-600 transition-colors duration-200 relative;
+  }
+  .nav-link:hover {
+    color: var(--petrol-700);
+  }
+  .nav-link::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 w-0 h-0.5 rounded-full transition-all duration-300;
+    background: var(--gold-600);
+  }
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  /* ── Buttons ── */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5;
+    background-color: var(--petrol-900);
+  }
+  .btn-primary:hover {
+    background-color: var(--petrol-800);
+  }
+  .btn-gold {
+    @apply inline-flex items-center gap-2 bg-amber-700 hover:bg-amber-600 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5;
+  }
+  .btn-outline {
+    @apply inline-flex items-center gap-2 border-2 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300;
+    border-color: var(--petrol-900);
+    color: var(--petrol-900);
+  }
+  .btn-outline:hover {
+    background-color: var(--petrol-900);
+    color: white;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 text-slate-600 hover:bg-slate-100 font-medium px-4 py-2 rounded-lg transition-all duration-200;
+  }
+  .btn-ghost:hover {
+    color: var(--petrol-900);
+  }
+
+  /* ── Cards ── */
+  .card-premium {
+    @apply bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1;
+  }
+  .card-stat {
+    @apply bg-white rounded-2xl border border-slate-200 p-8 text-center shadow-sm hover:shadow-lg transition-all duration-300;
+  }
+
+  /* ── Accessibility ── */
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:top-4 focus:start-4 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg focus:font-semibold focus:text-sm;
+    background-color: white;
+    color: var(--petrol-900);
+  }
+
+  .text-caption {
+    @apply text-xs text-slate-600;
+  }
+
+  .text-caption-on-dark {
+    @apply text-xs text-slate-400;
+  }
+
+  /* ── Layout ── */
+  .site-container {
+    @apply mx-auto w-full px-6 sm:px-8 lg:px-12 xl:px-16 max-w-7xl;
+  }
+  @media (min-width: 1024px) {
+    .site-container {
+      max-width: 90rem; /* 1440px — wider than default 7xl on lg+ */
+    }
+  }
+
+  /* ── Section patterns ── */
+  .section-white  { @apply bg-white py-20 px-4; }
+  .section-slate  { @apply bg-slate-50 py-20 px-4; }
+  .section-cream  { @apply py-20 px-4; background-color: #fafaf9; }
+  .section-petrol { @apply text-white py-20 px-4; background-color: var(--petrol-950); }
+
+  /* ── Typography ── */
+  .section-label {
+    @apply text-xs font-semibold tracking-widest uppercase;
+    color: var(--color-primary);
+  }
+  .section-heading {
+    @apply text-3xl md:text-4xl font-bold text-slate-900 leading-tight;
+  }
+  .section-sub {
+    @apply text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed;
+  }
+
+  /* ── Gold divider ── */
+  .gold-divider      { @apply w-16 h-1 bg-amber-700 rounded-full mx-auto my-4; }
+  .gold-divider-left { @apply w-16 h-1 bg-amber-700 rounded-full my-4; }
+
+  /* ── Badge ── */
+  .badge       { @apply inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full; }
+  .badge-petrol { @apply inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full text-white; background-color: var(--petrol-900); }
+  .badge-gold  { @apply inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full bg-amber-100 text-amber-800 border border-amber-300; }
+  .badge-slate { @apply inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full bg-slate-100 text-slate-700; }
+  /* keep old alias for existing usage */
+  .badge-navy  { @apply inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full text-white; background-color: var(--petrol-900); }
+
+  /* ── Timeline ── */
+  .timeline-dot { @apply w-8 h-8 rounded-full border-4 border-white shadow-lg flex items-center justify-center; }
+
+  /* ── Video card ── */
+  .video-card {
+    @apply bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 overflow-hidden cursor-pointer;
+  }
+  .video-overlay { @apply absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent; }
+  .play-btn      { @apply absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300; }
+
+  /* ── Admin sidebar ── */
+  .sidebar-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-cyan-200 hover:text-white hover:bg-white/10 transition-all duration-200 text-sm font-medium;
+  }
+  .sidebar-link-active {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-white bg-white/15 text-sm font-medium;
+  }
+
+  /* ── Input ── */
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-800 placeholder-slate-400 focus:outline-none transition-all duration-200 bg-white;
+  }
+  .input-field:focus {
+    border-color: var(--petrol-700);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--petrol-700) 20%, transparent);
+  }
+
+  /* ── Countdown ── */
+  .countdown-box {
+    @apply rounded-2xl px-6 py-5 text-center border border-white/10 backdrop-blur-sm;
+    background-color: color-mix(in srgb, var(--petrol-950) 80%, transparent);
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+
+  .gradient-text {
+    background: linear-gradient(90deg, var(--petrol-900), var(--gold-600));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .gold-text    { color: var(--gold-600); }
+  .petrol-text  { color: var(--petrol-900); }
+  .text-primary { color: var(--color-primary); }
+  .bg-primary   { background-color: var(--color-primary); }
+  .hover\:text-primary:hover { color: var(--color-primary); }
+
+  /* Hero gradient */
+  .hero-gradient {
+    background: linear-gradient(135deg, var(--petrol-950) 0%, var(--petrol-900) 100%);
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-8px); }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out both;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out both;
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+}
