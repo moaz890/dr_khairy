@@ -32,14 +32,7 @@ export default function ConferencesPage() {
   return (
     <>
       {/* Header */}
-      <section
-        className="relative pt-32 pb-20 overflow-hidden"
-        style={{ background: "linear-gradient(135deg, var(--petrol-950) 0%, var(--petrol-900) 100%)" }}
-      >
-        <div className="absolute inset-0">
-          <div className="absolute top-0 right-0 w-96 h-96 opacity-10 bg-amber-500 blur-3xl rounded-full" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 opacity-10 bg-cyan-400 blur-3xl rounded-full" />
-        </div>
+      <section className="bg-hero-section relative pt-32 pb-20 overflow-hidden">
         <div className="relative max-w-4xl mx-auto px-4 text-center">
           <p className="section-label text-cyan-300 mb-3">{t.conferences.label}</p>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{t.conferences.heading}</h1>

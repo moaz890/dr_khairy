@@ -9,8 +9,8 @@ export default function ClinicLocations() {
 
   return (
     <section
-      className="py-20 px-4"
-      style={{ backgroundColor: "var(--petrol-950)" }}
+      id="clinic-locations"
+      className="bg-surgery-section relative py-20 px-4 overflow-hidden"
     >
       <div className="site-container">
         <div className="text-center mb-12">
@@ -76,7 +76,7 @@ export default function ClinicLocations() {
               href="https://wa.me/201124427427"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-gold inline-flex"
+              className="btn-book"
             >
               <MessageCircle size={18} />
               {t.nav.bookAppointment}

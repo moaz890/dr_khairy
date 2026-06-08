@@ -49,7 +49,7 @@ function BookingPanel() {
         href="https://wa.me/201124427427"
         target="_blank"
         rel="noopener noreferrer"
-        className="btn-gold w-full justify-center py-3.5"
+        className="btn-book w-full justify-center py-3.5"
       >
         <MessageCircle size={18} />
         {t.nav.bookWhatsApp}
@@ -82,15 +82,7 @@ export default function WorkshopPage() {
   return (
     <>
       {/* Hero with countdown */}
-      <section
-        className="relative pt-28 sm:pt-32 lg:pt-36 pb-24 overflow-hidden"
-        style={{ background: "linear-gradient(135deg, var(--petrol-950) 0%, var(--petrol-900) 100%)" }}
-      >
-        <div className="absolute inset-0">
-          <div className="absolute top-0 right-0 w-96 h-96 opacity-10 bg-amber-500 blur-3xl rounded-full" />
-          <div className="absolute bottom-0 left-0 w-80 h-80 opacity-10 bg-cyan-400 blur-3xl rounded-full" />
-        </div>
-
+      <section className="bg-hero-section relative pt-28 sm:pt-32 lg:pt-36 pb-24 overflow-hidden">
         <div className="relative max-w-5xl mx-auto px-4 text-center">
           <div className="inline-flex items-center gap-2 bg-amber-700/20 border border-amber-700/40 rounded-full px-4 py-2 mb-6">
             <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
@@ -154,7 +146,7 @@ export default function WorkshopPage() {
                 <div className="grid sm:grid-cols-2 gap-3">
                   {ws.topics.map((topic) => (
                     <div key={topic.en} className="flex items-center gap-3 bg-white px-4 py-3 rounded-xl border border-slate-200">
-                      <ChevronRight size={14} className="text-amber-600 shrink-0 rtl-flip" />
+                      <ChevronRight size={14} className="text-primary shrink-0 rtl-flip" />
                       <span className="text-sm text-slate-700">{topic[lang]}</span>
                     </div>
                   ))}

@@ -36,13 +36,13 @@ export default function Footer() {
                   <span className="text-white font-bold text-2xl">RK</span>
                 </div>
               ) : (
-                <div className="w-20 h-20 rounded-xl overflow-hidden shadow-md">
+                <div className="relative w-20 h-20 rounded-xl overflow-hidden shadow-md">
                   <Image
                     src="/logo.jpg"
                     alt={t.common.logoAlt}
-                    width={80}
-                    height={80}
-                    className="object-cover w-full h-full"
+                    fill
+                    sizes="80px"
+                    className="object-cover"
                     onError={() => setLogoError(true)}
                   />
                 </div>
@@ -81,7 +81,7 @@ export default function Footer() {
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-sm text-slate-400 hover:text-amber-400 transition-colors duration-200 flex items-center gap-1.5 group">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary group-hover:bg-cyan-500 transition-colors" />
+                    <span className="bullet-sm" />
                     {link.label}
                   </Link>
                 </li>
@@ -95,7 +95,7 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {doctorProfile.specializations.map((s) => (
                 <li key={s.en} className="text-sm text-slate-400 flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "var(--petrol-700)" }} />
+                  <span className="bullet-sm" />
                   {s[lang]}
                 </li>
               ))}

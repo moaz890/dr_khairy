@@ -54,13 +54,13 @@ export default function Navbar() {
                 <span className="text-white font-bold text-2xl">RK</span>
               </div>
             ) : (
-              <div className="w-20 h-20 rounded-xl overflow-hidden shadow-md group-hover:opacity-80 transition-opacity">
+              <div className="relative w-20 h-20 rounded-xl overflow-hidden shadow-md group-hover:opacity-80 transition-opacity">
                 <Image
                   src="/logo.jpg"
                   alt={t.common.logoAlt}
-                  width={80}
-                  height={80}
-                  className="object-cover w-full h-full"
+                  fill
+                  sizes="80px"
+                  className="object-cover"
                   onError={() => setLogoError(true)}
                   priority
                 />
@@ -70,7 +70,7 @@ export default function Navbar() {
               <p
                 className={cn(
                   "font-bold text-sm leading-tight transition-colors duration-300 truncate",
-                  scrolled ? "text-slate-900" : "text-white"
+                  scrolled ? "text-slate-900" : "text-slate-600"
                 )}
               >
                 {t.hero.name}
@@ -78,7 +78,7 @@ export default function Navbar() {
               <p
                 className={cn(
                   "text-xs transition-colors duration-300 line-clamp-1",
-                  scrolled ? "text-primary" : "text-cyan-300"
+                  scrolled ? "text-slate-600" : "text-slate-400"
                 )}
               >
                 {t.hero.navTitle}
@@ -101,8 +101,8 @@ export default function Navbar() {
                         ? "text-amber-600 font-semibold border-b-2 border-amber-600 pb-0.5"
                         : "text-amber-400 font-semibold border-b-2 border-amber-400 pb-0.5"
                       : scrolled
-                        ? "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
-                        : "text-cyan-100 hover:text-white hover:bg-white/10"
+                        ? "text-slate-700 hover:text-slate-900 hover:bg-slate-50"
+                        : "text-slate-500 hover:text-slate-700 hover:bg-white/10"
                   )}
                 >
                   {link.label}
@@ -118,7 +118,7 @@ export default function Navbar() {
               href="https://wa.me/201124427427"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-gold text-sm py-2.5 px-5 rounded-lg"
+              className="btn-book text-sm py-2.5 px-5"
             >
               <MessageCircle size={18} />
               {t.nav.bookWhatsApp}
@@ -169,7 +169,7 @@ export default function Navbar() {
                 href="https://wa.me/201124427427"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-gold flex-1 justify-center py-3 text-sm"
+                className="btn-book flex-1 justify-center py-3 text-sm"
                 onClick={() => setMobileOpen(false)}
               >
                 <MessageCircle size={18} />

@@ -2,33 +2,63 @@
 
 /* =========================================================
    DESIGN SYSTEM — Dr. Rabie Khairy Medical Platform
-   Petrol Blue / Teal Theme
+   2026 Premium Healthcare Theme
+   Deep Navy · Muted Teal · Clean White
    ========================================================= */
 
 @layer base {
   :root {
-    /* ── Petrol Blue palette ── */
-    --petrol-950: #0a2f35;
-    --petrol-900: #164e63;   /* cyan-900 — dark backgrounds, sidebar */
-    --petrol-800: #155e75;   /* cyan-800 */
-    --petrol-700: #0e7490;   /* cyan-700 — interactive elements */
-    --petrol-500: #06b6d4;   /* cyan-500 — light accents */
-    --petrol-100: #cffafe;   /* cyan-100 */
-    --petrol-50:  #ecfeff;   /* cyan-50  */
+    /* ── 1. PRIMARY — Deep Navy Blue (Authority & Trust) ── */
+    --navy-950: #0a0f1e;
+    --navy-900: #0f172a;   /* primary — headings, nav, hero bg */
+    --navy-800: #1e293b;   /* strong structural text */
+    --navy-700: #334155;   /* secondary structural text */
+    --navy-600: #475569;   /* body text */
+    --navy-200: #cbd5e1;   /* light borders, dividers */
+    --navy-100: #e2e8f0;   /* very light tint */
+    --navy-50:  #f8fafc;   /* background alternative */
 
-    /* ── Gold accent (unchanged) ── */
-    --gold-600:  #b45309;
-    --gold-500:  #d97706;
-    --gold-400:  #d4af37;
+    /* ── 2. ACCENT — Muted Teal (CTAs, Icons, Micro-interactions) ── */
+    --teal-900: #0a3d38;
+    --teal-800: #0d6b61;
+    --teal-700: #0a9487;
+    --teal-600: #0d9488;   /* PRIMARY CTA — Book Appointment, Contact */
+    --teal-500: #14b8a6;   /* hover state */
+    --teal-200: #99f6e4;
+    --teal-100: #ccfbf1;
+    --teal-50:  #f0fdfa;
 
-    /* ── Primary alias ── */
-    --color-primary: var(--petrol-900);
+    /* ── 3. NEUTRALS — Clean Backgrounds ── */
+    --white:      #ffffff;  /* page sections, cards */
+    --cool-gray:  #f8fafc;  /* alternate section backgrounds */
+    --cool-gray2: #f1f5f9;  /* subtle dividers, inputs */
 
-    /* ── Neutrals ── */
-    --cream-50:  #fafaf9;
-    --slate-50:  #f8fafc;
-    --charcoal:  #334155;
-    --border:    #e2e8f0;
+    /* ── 4. TYPOGRAPHY — WCAG AA/AAA Compliant ── */
+    --text-primary:   #0f172a;  /* headings — deep navy */
+    --text-body:      #1e293b;  /* body paragraphs — dark slate */
+    --text-muted:     #475569;  /* secondary text, captions */
+    --text-subtle:    #64748b;  /* placeholders, metadata */
+    --text-on-dark:   #f8fafc;  /* text on dark/teal backgrounds */
+
+    /* ── Gold — prestige accents (awards, timeline, dividers only) ── */
+    --gold-700: #926e08;
+    --gold-600: #b8920a;
+    --gold-400: #d4af37;
+    --gold-50:  #fefce8;
+
+    /* ── Semantic aliases ── */
+    --color-primary: var(--navy-900);
+    --color-accent:  var(--teal-600);
+    --page-bg:       var(--cool-gray);
+    --surface:       var(--white);
+    --border:        var(--navy-100);
+    --border-light:  var(--cool-gray2);
+
+    /* ── Legacy aliases (backward compat — do not remove) ── */
+    --charcoal:  var(--navy-600);
+    --sage-700:  #3d6b5a;
+    --sage-600:  #4a7c6b;
+    --sage-50:   #e8f5f0;
   }
 
   html {
@@ -36,23 +66,18 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--petrol-700);
+    outline: 2px solid var(--teal-600);
     outline-offset: 2px;
   }
-
-  :focus:not(:focus-visible) {
-    outline: none;
-  }
+  :focus:not(:focus-visible) { outline: none; }
 
   * {
-    @apply border-slate-200;
     box-sizing: border-box;
   }
 
-  /* ── Font switching: English = Inter, Arabic = Cairo ── */
   body {
-    color: var(--charcoal);
-    background: #ffffff;
+    color: var(--text-body);
+    background: var(--cool-gray);
     font-family: var(--font-inter), system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -64,183 +89,356 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    color: var(--petrol-950);
+    color: var(--text-primary);
     font-weight: 700;
     line-height: 1.2;
   }
 
+  a { color: inherit; }
+
   /* RTL helpers */
-  html[dir="rtl"] .rtl-flip {
-    transform: scaleX(-1);
-  }
+  html[dir="rtl"] .rtl-flip { transform: scaleX(-1); }
 }
 
 @layer components {
-  /* ── Navigation ── */
+
+  /* ═══════════════════════════════════════════
+     NAVIGATION
+  ═══════════════════════════════════════════ */
   .nav-link {
-    @apply text-sm font-medium text-slate-600 transition-colors duration-200 relative;
+    @apply text-sm font-medium transition-colors duration-200 relative;
+    color: var(--text-muted);
   }
-  .nav-link:hover {
-    color: var(--petrol-700);
-  }
+  .nav-link:hover { color: var(--teal-600); }
   .nav-link::after {
     content: '';
     @apply absolute -bottom-1 left-0 w-0 h-0.5 rounded-full transition-all duration-300;
-    background: var(--gold-600);
+    background: var(--teal-600);
   }
-  .nav-link:hover::after {
-    @apply w-full;
+  .nav-link:hover::after { @apply w-full; }
+
+  /* ═══════════════════════════════════════════
+     BUTTONS
+  ═══════════════════════════════════════════ */
+
+  /* Primary CTA — Muted Teal (Book Appointment, Contact) */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5;
+    background-color: var(--teal-600);
+  }
+  .btn-primary:hover { background-color: var(--teal-700); }
+
+  /* Navy — for structural/secondary actions */
+  .btn-navy {
+    @apply inline-flex items-center gap-2 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5;
+    background-color: var(--navy-900);
+  }
+  .btn-navy:hover { background-color: var(--navy-800); }
+
+  /* Gold — prestige actions (view certifications, etc.) */
+  .btn-gold {
+    @apply inline-flex items-center gap-2 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5;
+    background-color: var(--gold-600);
+  }
+  .btn-gold:hover { background-color: var(--gold-700); }
+
+  /* Booking CTA — matches hero floating card button (bg-cyan-900) */
+  .btn-book {
+    @apply inline-flex items-center gap-2 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-300 bg-cyan-900 hover:bg-cyan-800;
   }
 
-  /* ── Buttons ── */
-  .btn-primary {
-    @apply inline-flex items-center gap-2 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5;
-    background-color: var(--petrol-900);
+  /* Sage — legacy alias → maps to navy */
+  .btn-sage {
+    @apply inline-flex items-center gap-2 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5;
+    background-color: var(--navy-900);
   }
-  .btn-primary:hover {
-    background-color: var(--petrol-800);
-  }
-  .btn-gold {
-    @apply inline-flex items-center gap-2 bg-amber-700 hover:bg-amber-600 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5;
-  }
+  .btn-sage:hover { background-color: var(--navy-800); }
+
+  /* Outline — clear, minimal border button */
   .btn-outline {
-    @apply inline-flex items-center gap-2 border-2 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300;
-    border-color: var(--petrol-900);
-    color: var(--petrol-900);
+    @apply inline-flex items-center gap-2 border-2 font-semibold px-6 py-3 rounded-lg transition-all duration-300;
+    border-color: var(--teal-600);
+    color: var(--teal-600);
+    background: transparent;
   }
   .btn-outline:hover {
-    background-color: var(--petrol-900);
+    background-color: var(--teal-600);
     color: white;
   }
+
+  /* Outline Navy */
+  .btn-outline-navy {
+    @apply inline-flex items-center gap-2 border-2 font-semibold px-6 py-3 rounded-lg transition-all duration-300;
+    border-color: var(--navy-900);
+    color: var(--navy-900);
+    background: transparent;
+  }
+  .btn-outline-navy:hover {
+    background-color: var(--navy-900);
+    color: white;
+  }
+
+  /* Ghost */
   .btn-ghost {
-    @apply inline-flex items-center gap-2 text-slate-600 hover:bg-slate-100 font-medium px-4 py-2 rounded-lg transition-all duration-200;
+    @apply inline-flex items-center gap-2 font-medium px-4 py-2 rounded-lg transition-all duration-200;
+    color: var(--text-muted);
   }
   .btn-ghost:hover {
-    color: var(--petrol-900);
+    background-color: var(--cool-gray2);
+    color: var(--teal-600);
   }
 
-  /* ── Cards ── */
+  /* ═══════════════════════════════════════════
+     CARDS
+  ═══════════════════════════════════════════ */
   .card-premium {
-    @apply bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1;
+    @apply bg-white rounded-2xl border shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1;
+    border-color: var(--navy-100);
   }
   .card-stat {
-    @apply bg-white rounded-2xl border border-slate-200 p-8 text-center shadow-sm hover:shadow-lg transition-all duration-300;
+    @apply bg-white rounded-2xl border p-8 text-center shadow-sm hover:shadow-lg transition-all duration-300;
+    border-color: var(--navy-100);
   }
 
-  /* ── Accessibility ── */
+  /* Teal-tinted stat card accent */
+  .card-stat-accent {
+    @apply rounded-2xl border p-8 text-center shadow-sm transition-all duration-300;
+    background-color: var(--teal-50);
+    border-color: var(--teal-100);
+  }
+
+  /* ═══════════════════════════════════════════
+     ACCESSIBILITY
+  ═══════════════════════════════════════════ */
   .skip-link {
     @apply sr-only focus:not-sr-only focus:fixed focus:top-4 focus:start-4 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg focus:font-semibold focus:text-sm;
     background-color: white;
-    color: var(--petrol-900);
+    color: var(--navy-900);
   }
 
-  .text-caption {
-    @apply text-xs text-slate-600;
-  }
+  .text-caption         { color: var(--text-muted); @apply text-xs; }
+  .text-caption-on-dark { color: var(--navy-200);   @apply text-xs; }
 
-  .text-caption-on-dark {
-    @apply text-xs text-slate-400;
-  }
-
-  /* ── Layout ── */
+  /* ═══════════════════════════════════════════
+     LAYOUT
+  ═══════════════════════════════════════════ */
   .site-container {
     @apply mx-auto w-full px-6 sm:px-8 lg:px-12 xl:px-16 max-w-7xl;
   }
   @media (min-width: 1024px) {
-    .site-container {
-      max-width: 90rem; /* 1440px — wider than default 7xl on lg+ */
-    }
+    .site-container { max-width: 90rem; }
   }
 
-  /* ── Section patterns ── */
-  .section-white  { @apply bg-white py-20 px-4; }
-  .section-slate  { @apply bg-slate-50 py-20 px-4; }
-  .section-cream  { @apply py-20 px-4; background-color: #fafaf9; }
-  .section-petrol { @apply text-white py-20 px-4; background-color: var(--petrol-950); }
+  /* ═══════════════════════════════════════════
+     SECTION PATTERNS
+  ═══════════════════════════════════════════ */
+  .section-white  { background-color: var(--white);      @apply py-20 px-4; }
+  .section-slate  { background-color: var(--cool-gray);  @apply py-20 px-4; }
+  .section-cream  { background-color: var(--cool-gray);  @apply py-20 px-4; }
+  .section-teal   { background-color: var(--teal-50);    @apply py-20 px-4; }
+  .section-sage   { background-color: var(--teal-50);    @apply py-20 px-4; }
+  .section-navy   { background-color: var(--navy-900);   @apply text-white py-20 px-4; }
+  .section-petrol { background-color: var(--navy-900);   @apply text-white py-20 px-4; }
 
-  /* ── Typography ── */
+  /* ═══════════════════════════════════════════
+     TYPOGRAPHY
+  ═══════════════════════════════════════════ */
   .section-label {
     @apply text-xs font-semibold tracking-widest uppercase;
-    color: var(--color-primary);
+    color: var(--teal-600);
   }
   .section-heading {
-    @apply text-3xl md:text-4xl font-bold text-slate-900 leading-tight;
+    @apply text-3xl md:text-4xl font-bold leading-tight;
+    color: var(--text-primary);
   }
   .section-sub {
-    @apply text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed;
+    @apply text-lg max-w-2xl mx-auto leading-relaxed;
+    color: var(--text-subtle);
   }
 
-  /* ── Gold divider ── */
-  .gold-divider      { @apply w-16 h-1 bg-amber-700 rounded-full mx-auto my-4; }
-  .gold-divider-left { @apply w-16 h-1 bg-amber-700 rounded-full my-4; }
+  /* ═══════════════════════════════════════════
+     BULLETS
+  ═══════════════════════════════════════════ */
+  .bullet {
+    @apply w-2 h-2 rounded-full shrink-0;
+    background-color: var(--color-primary);
+  }
+  .bullet-sm {
+    @apply w-1.5 h-1.5 rounded-full shrink-0;
+    background-color: var(--color-primary);
+  }
 
-  /* ── Badge ── */
+  /* ═══════════════════════════════════════════
+     DIVIDERS
+  ═══════════════════════════════════════════ */
+  .teal-divider       { @apply w-16 h-1 rounded-full mx-auto my-4; background-color: var(--teal-600); }
+  .teal-divider-left  { @apply w-16 h-1 rounded-full my-4;         background-color: var(--teal-600); }
+  .gold-divider       { @apply w-16 h-1 rounded-full mx-auto my-4; background-color: var(--gold-600); }
+  .gold-divider-left  { @apply w-16 h-1 rounded-full my-4;         background-color: var(--gold-600); }
+  /* legacy aliases */
+  .sage-divider       { @apply w-16 h-1 rounded-full mx-auto my-4; background-color: var(--teal-600); }
+  .sage-divider-left  { @apply w-16 h-1 rounded-full my-4;         background-color: var(--teal-600); }
+
+  /* ═══════════════════════════════════════════
+     BADGES
+  ═══════════════════════════════════════════ */
   .badge       { @apply inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full; }
-  .badge-petrol { @apply inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full text-white; background-color: var(--petrol-900); }
-  .badge-gold  { @apply inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full bg-amber-100 text-amber-800 border border-amber-300; }
-  .badge-slate { @apply inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full bg-slate-100 text-slate-700; }
-  /* keep old alias for existing usage */
-  .badge-navy  { @apply inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full text-white; background-color: var(--petrol-900); }
+  .badge-teal  {
+    @apply inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full;
+    background-color: var(--teal-100);
+    color: var(--teal-800);
+  }
+  .badge-navy  {
+    @apply inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full text-white;
+    background-color: var(--navy-900);
+  }
+  .badge-gold  {
+    @apply inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full border;
+    background-color: var(--gold-50);
+    color: var(--gold-700);
+    border-color: var(--gold-400);
+  }
+  .badge-slate { @apply inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full bg-slate-100 text-slate-600; }
+  /* legacy aliases */
+  .badge-petrol { @apply inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full text-white; background-color: var(--navy-900); }
+  .badge-sage   {
+    @apply inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full;
+    background-color: var(--teal-100);
+    color: var(--teal-800);
+  }
 
-  /* ── Timeline ── */
+  /* ═══════════════════════════════════════════
+     TIMELINE
+  ═══════════════════════════════════════════ */
   .timeline-dot { @apply w-8 h-8 rounded-full border-4 border-white shadow-lg flex items-center justify-center; }
 
-  /* ── Video card ── */
+  /* ═══════════════════════════════════════════
+     VIDEO CARD
+  ═══════════════════════════════════════════ */
   .video-card {
-    @apply bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 overflow-hidden cursor-pointer;
+    @apply bg-white rounded-2xl border shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 overflow-hidden cursor-pointer;
+    border-color: var(--navy-100);
   }
   .video-overlay { @apply absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent; }
   .play-btn      { @apply absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300; }
 
-  /* ── Admin sidebar ── */
+  /* ═══════════════════════════════════════════
+     ADMIN SIDEBAR
+  ═══════════════════════════════════════════ */
   .sidebar-link {
-    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-cyan-200 hover:text-white hover:bg-white/10 transition-all duration-200 text-sm font-medium;
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-sm font-medium;
+    color: rgba(248, 250, 252, 0.7);
+  }
+  .sidebar-link:hover {
+    color: white;
+    background-color: rgba(255,255,255,0.10);
   }
   .sidebar-link-active {
-    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-white bg-white/15 text-sm font-medium;
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-white text-sm font-medium;
+    background-color: rgba(13, 148, 136, 0.25); /* teal glow for active */
   }
 
-  /* ── Input ── */
+  /* ═══════════════════════════════════════════
+     INPUT FIELDS
+  ═══════════════════════════════════════════ */
   .input-field {
-    @apply w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-800 placeholder-slate-400 focus:outline-none transition-all duration-200 bg-white;
+    @apply w-full px-4 py-3 rounded-xl border text-slate-800 placeholder-slate-400 focus:outline-none transition-all duration-200 bg-white;
+    border-color: var(--navy-100);
   }
   .input-field:focus {
-    border-color: var(--petrol-700);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--petrol-700) 20%, transparent);
+    border-color: var(--teal-600);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--teal-600) 15%, transparent);
   }
 
-  /* ── Countdown ── */
+  /* ═══════════════════════════════════════════
+     COUNTDOWN BOX
+  ═══════════════════════════════════════════ */
   .countdown-box {
     @apply rounded-2xl px-6 py-5 text-center border border-white/10 backdrop-blur-sm;
-    background-color: color-mix(in srgb, var(--petrol-950) 80%, transparent);
+    background-color: rgba(15, 23, 42, 0.7);
+  }
+
+  /* ═══════════════════════════════════════════
+     KEYWORD HIGHLIGHT
+  ═══════════════════════════════════════════ */
+  .keyword-highlight {
+    font-weight: 700;
+    color: var(--teal-700);
   }
 }
 
 @layer utilities {
   .text-balance { text-wrap: balance; }
 
+  /* Gradient text — Navy to Teal */
   .gradient-text {
-    background: linear-gradient(90deg, var(--petrol-900), var(--gold-600));
+    background: linear-gradient(90deg, var(--navy-900) 0%, var(--teal-600) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  .gold-text    { color: var(--gold-600); }
-  .petrol-text  { color: var(--petrol-900); }
-  .text-primary { color: var(--color-primary); }
-  .bg-primary   { background-color: var(--color-primary); }
-  .hover\:text-primary:hover { color: var(--color-primary); }
 
-  /* Hero gradient */
+  /* Semantic color utilities */
+  .teal-text    { color: var(--teal-600); }
+  .navy-text    { color: var(--navy-900); }
+  .gold-text    { color: var(--gold-600); }
+  /* legacy */
+  .petrol-text  { color: var(--navy-900); }
+  .sage-text    { color: var(--teal-600); }
+
+  .text-primary { color: var(--text-primary); }
+  .text-body    { color: var(--text-body);    }
+  .text-muted   { color: var(--text-muted);   }
+  .bg-primary   { background-color: var(--navy-900);  }
+  .bg-accent    { background-color: var(--teal-600);  }
+  .hover\:text-primary:hover { color: var(--navy-900); }
+  .hover\:text-accent:hover  { color: var(--teal-600); }
+
+  /* ── Hero gradient — clean, deep Navy (no neon tones) ── */
   .hero-gradient {
-    background: linear-gradient(135deg, var(--petrol-950) 0%, var(--petrol-900) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--navy-950)  0%,
+      var(--navy-900) 55%,
+      #162032        100%
+    );
   }
 
+  /* ── Section photo backgrounds ── */
+  .bg-hero-section {
+    background-image:
+      linear-gradient(135deg, rgba(10, 15, 30, 0.82) 0%, rgba(15, 23, 42, 0.72) 50%, rgba(10, 15, 30, 0.88) 100%),
+      url("/hero.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .bg-surgery-section {
+    background-image:
+      linear-gradient(135deg, rgba(10, 15, 30, 0.9) 0%, rgba(15, 23, 42, 0.85) 100%),
+      url("/surgery.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  /* ── Teal CTA gradient ── */
+  .teal-gradient {
+    background: linear-gradient(135deg, var(--teal-700) 0%, var(--teal-600) 100%);
+  }
+
+  /* ── Subtle section teal wash ── */
+  .teal-wash {
+    background: linear-gradient(180deg, var(--white) 0%, var(--teal-50) 100%);
+  }
+
+  /* ── Animations ── */
   .animate-float {
     animation: float 3s ease-in-out infinite;
   }
   @keyframes float {
-    0%, 100% { transform: translateY(0px); }
+    0%, 100% { transform: translateY(0px);  }
     50%       { transform: translateY(-8px); }
   }
 
@@ -249,7 +447,7 @@
   }
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
+    to   { opacity: 1; transform: translateY(0);    }
   }
 
   .animate-slide-up {
@@ -257,7 +455,7 @@
   }
   @keyframes slideUp {
     from { opacity: 0; transform: translateY(30px); }
-    to   { opacity: 1; transform: translateY(0); }
+    to   { opacity: 1; transform: translateY(0);    }
   }
 
   .scrollbar-hide {

@@ -35,24 +35,8 @@ export default function HomePage() {
       {/* ── HERO SECTION ── */}
       <section
         id="hero"
-        className="relative min-h-screen flex items-center overflow-hidden pt-28 sm:pt-32 lg:pt-36"
-        style={{ background: "linear-gradient(135deg, var(--petrol-950) 0%, var(--petrol-900) 50%, var(--petrol-950) 100%)" }}
+        className="bg-hero-section relative min-h-screen flex items-center overflow-hidden pt-28 sm:pt-32 lg:pt-36"
       >
-        {/* Background decorative elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full opacity-10 bg-amber-500 blur-3xl" />
-          <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full opacity-10 bg-blue-400 blur-3xl" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-5 bg-white blur-3xl" />
-          {/* Grid pattern */}
-          <div
-            className="absolute inset-0 opacity-5"
-            style={{
-              backgroundImage:
-                "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
-              backgroundSize: "60px 60px",
-            }}
-          />
-        </div>
 
         <div className="relative site-container w-full flex items-center justify-center min-h-[calc(100vh-6rem)] py-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
@@ -60,20 +44,12 @@ export default function HomePage() {
             <div className="animate-fade-in text-start">
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
                 <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-                <span className="text-amber-400 text-xs font-semibold tracking-wider uppercase">
+                <span className="text-white text-xs font-semibold tracking-wider uppercase">
                   {t.hero.affiliation}
                 </span>
               </div>
 
-              <h1
-                className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
-                style={{
-                  background: "linear-gradient(90deg, #d4af37, #b45309)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white">
                 {t.hero.name}
               </h1>
 
@@ -90,7 +66,7 @@ export default function HomePage() {
                   href="https://wa.me/201124427427"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-gold"
+                  className="btn-book"
                 >
                   <MessageCircle size={18} />
                   {t.hero.registerCTA}
@@ -151,7 +127,7 @@ export default function HomePage() {
                   href="https://wa.me/201124427427"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full text-center bg-cyan-900 text-white text-xs font-semibold py-2 px-4 rounded-lg hover:bg-cyan-800 transition-colors flex items-center justify-center gap-1.5"
+                  className="btn-book w-full justify-center text-xs py-2 px-4"
                 >
                   {t.hero.ctaCard.book}
                   <ArrowRight size={12} />
@@ -228,7 +204,7 @@ export default function HomePage() {
                     key={spec.en}
                     className="flex items-center gap-3 p-3 rounded-xl bg-white border border-slate-200 hover:border-cyan-300 hover:bg-cyan-50 transition-all duration-200"
                   >
-                    <div className="w-2 h-2 rounded-full bg-amber-600 shrink-0" />
+                    <div className="bullet" />
                     <span className="text-sm text-slate-700">{spec[lang]}</span>
                   </div>
                 ))}
@@ -261,7 +237,7 @@ export default function HomePage() {
                 <div className="space-y-2">
                   {service.conditions.slice(0, 3).map((c) => (
                     <div key={c.id} className="flex items-center gap-2 text-xs text-slate-600">
-                      <ChevronRight size={12} className="text-amber-600" />
+                      <ChevronRight size={12} className="text-primary shrink-0" />
                       {c.name[lang]}
                     </div>
                   ))}
@@ -280,12 +256,8 @@ export default function HomePage() {
       {/* ── BOOKING CTA BANNER ── */}
       <section
         id="booking-cta"
-        className="relative py-20 overflow-hidden"
-        style={{ background: "linear-gradient(135deg, var(--petrol-950) 0%, var(--petrol-900) 100%)" }}
+        className="bg-surgery-section relative py-20 overflow-hidden"
       >
-        <div className="absolute inset-0">
-          <div className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-10 bg-amber-500 blur-3xl" />
-        </div>
         <div className="relative site-container text-center">
           <div className="inline-flex items-center gap-2 bg-amber-700/20 border border-amber-700/40 rounded-full px-4 py-2 mb-6">
             <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
@@ -304,7 +276,7 @@ export default function HomePage() {
               href="https://wa.me/201124427427"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-gold"
+              className="btn-book"
             >
               <MessageCircle size={18} />
               {t.nav.bookWhatsApp}
