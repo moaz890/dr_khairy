@@ -20,12 +20,27 @@ export default function Navbar() {
   const pathname = usePathname();
   const { t, lang } = useLanguage();
 
+  const homeLink = { href: "/", label: t.nav.home };
   const navLinks = [
     { href: "/blog", label: t.nav.blog },
-    { href: "/before-after", label: t.nav.beforeAfter },
+    { href: "/before-after", label: t.nav.videos },
     { href: "/about", label: t.nav.about },
     { href: "/contact", label: t.nav.contact },
   ];
+
+  const linkClass = (href: string) => {
+    const isActive = href === "/" ? pathname === "/" : pathname === href;
+    return cn(
+      "px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200",
+      isActive
+        ? scrolled
+          ? "text-amber-600 font-semibold"
+          : "text-amber-400 font-semibold"
+        : scrolled
+          ? "text-slate-700 hover:text-slate-900 hover:bg-slate-50"
+          : "text-slate-500 hover:text-slate-700 hover:bg-white/10"
+    );
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -103,6 +118,9 @@ export default function Navbar() {
           </Link>
 
           <div className="hidden lg:flex items-center gap-0.5">
+            <Link href={homeLink.href} className={linkClass(homeLink.href)}>
+              {homeLink.label}
+            </Link>
             <div className="relative" ref={servicesRef}>
               <button
                 type="button"
@@ -161,27 +179,11 @@ export default function Navbar() {
               )}
             </div>
 
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={cn(
-                    "px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200",
-                    isActive
-                      ? scrolled
-                        ? "text-amber-600 font-semibold"
-                        : "text-amber-400 font-semibold"
-                      : scrolled
-                        ? "text-slate-700 hover:text-slate-900 hover:bg-slate-50"
-                        : "text-slate-500 hover:text-slate-700 hover:bg-white/10"
-                  )}
-                >
+            {navLinks.map((link) => (
+                <Link key={link.href} href={link.href} className={linkClass(link.href)}>
                   {link.label}
                 </Link>
-              );
-            })}
+              ))}
           </div>
 
           <div className="hidden lg:flex items-center gap-3 shrink-0">
@@ -215,6 +217,12 @@ export default function Navbar() {
       {mobileOpen && (
         <div id="mobile-nav" className="lg:hidden bg-white border-t border-slate-200 shadow-xl animate-slide-up max-h-[80vh] overflow-y-auto">
           <div className="w-full px-6 py-4 space-y-1">
+            <Link
+              href={homeLink.href}
+              className="block px-4 py-3 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-50"
+            >
+              {homeLink.label}
+            </Link>
             <p className="px-4 py-2 text-xs font-bold text-slate-400 uppercase tracking-wider">
               {t.nav.services}
             </p>

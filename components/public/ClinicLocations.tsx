@@ -42,6 +42,8 @@ export default function ClinicLocations() {
               <div className="flex flex-wrap gap-3">
                 <a
                   href={clinic.mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-sm text-cyan-300 hover:text-white transition-colors"
                 >
                   <ExternalLink size={14} />

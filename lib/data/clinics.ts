@@ -22,7 +22,7 @@ export const clinics: Clinic[] = [
     },
     phone: "01124427427",
     whatsapp: whatsappUrl("clinic-cairo"),
-    mapsUrl: "#",
+    mapsUrl: "https://maps.app.goo.gl/4sMY2848a4LWLkwZ9",
     hours: {
       en: "Saturday – Thursday, 4:00 PM – 9:00 PM",
       ar: "السبت – الخميس، ٤:٠٠ مساءً – ٩:٠٠ مساءً",
@@ -38,7 +38,7 @@ export const clinics: Clinic[] = [
     },
     phone: "01124427427",
     whatsapp: whatsappUrl("clinic-zagazig"),
-    mapsUrl: "#",
+    mapsUrl: "https://maps.app.goo.gl/Go7TWfmnUhvyy9Fv6",
     hours: {
       en: "Saturday – Thursday, 4:00 PM – 9:00 PM",
       ar: "السبت – الخميس، ٤:٠٠ مساءً – ٩:٠٠ مساءً",
