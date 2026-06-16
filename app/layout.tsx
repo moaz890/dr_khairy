@@ -30,6 +30,9 @@ export const metadata: Metadata = {
     icon: [{ url: "/logo.jpg", type: "image/jpeg" }],
     apple: "/logo.jpg",
   },
+  verification: {
+    google: "nhhQIouJ78TwnFBgw5WSY3yiXIjVaqAnFrFPd1tg5d4",
+  },
 };
 
 export default function RootLayout({
