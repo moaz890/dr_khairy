@@ -57,7 +57,12 @@ export function buildLocalBusinessSchema(): Record<string, unknown>[] {
       "Otolaryngologic",
       "PlasticSurgery",
     ],
-    sameAs: [doctorProfile.socials.youtube, doctorProfile.socials.linkedin],
+    sameAs: [
+      doctorProfile.socials.facebook,
+      doctorProfile.socials.instagram,
+      doctorProfile.socials.youtube,
+      doctorProfile.socials.tiktok,
+    ],
   }));
 }
 
@@ -99,9 +104,10 @@ export function buildPhysicianSchema(): Record<string, unknown> {
       addressCountry: "EG",
     })),
     sameAs: [
+      doctorProfile.socials.facebook,
+      doctorProfile.socials.instagram,
       doctorProfile.socials.youtube,
-      doctorProfile.socials.linkedin,
-      doctorProfile.socials.researchgate,
+      doctorProfile.socials.tiktok,
     ],
   };
 }

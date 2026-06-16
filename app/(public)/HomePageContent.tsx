@@ -29,6 +29,7 @@ import { whatsappUrl } from "@/lib/constants/whatsapp";
 import { testimonials } from "@/lib/data/testimonials";
 import { videos } from "@/lib/data/videos";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
+import SocialLinks from "@/components/public/SocialLinks";
 
 const statIcons: Record<string, React.ElementType> = {
   Calendar,
@@ -95,6 +96,13 @@ export default function HomePageContent() {
                     {badge}
                   </div>
                 ))}
+              </div>
+
+              <div className="mt-8">
+                <p className="text-slate-400 text-xs font-semibold uppercase tracking-wider mb-3">
+                  {t.hero.followUs}
+                </p>
+                <SocialLinks variant="hero" />
               </div>
             </div>
 

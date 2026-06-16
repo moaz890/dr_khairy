@@ -3,12 +3,12 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, MapPin, Share2, Globe, Play, ExternalLink, BookMarked, MessageCircle } from "lucide-react";
+import { Phone, MapPin, ExternalLink, MessageCircle } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
-import { doctorProfile } from "@/lib/data/doctor";
 import { clinics } from "@/lib/data/clinics";
 import { footerServiceLinks } from "@/lib/data/navigation";
 import { whatsappUrl } from "@/lib/constants/whatsapp";
+import SocialLinks from "@/components/public/SocialLinks";
 
 export default function Footer() {
   const [logoError, setLogoError] = useState(false);
@@ -52,25 +52,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed mb-6">{t.footer.desc}</p>
-            <div className="flex items-center gap-3">
-              {[
-                { icon: Share2, label: t.footer.social.twitter },
-                { icon: Globe, label: t.footer.social.linkedin },
-                { icon: Play, label: t.footer.social.youtube },
-                { icon: BookMarked, label: t.footer.social.researchgate },
-              ].map(({ icon: Icon, label }) => (
-                <a
-                  key={label}
-                  href="#"
-                  aria-label={label}
-                  className="w-9 h-9 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white transition-all duration-200"
-                  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "var(--gold-600)")}
-                  onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "")}
-                >
-                  <Icon size={16} />
-                </a>
-              ))}
-            </div>
+            <SocialLinks variant="footer" />
           </div>
 
           <div>

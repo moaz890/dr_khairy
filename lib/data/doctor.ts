@@ -1,6 +1,7 @@
 // Doctor profile — Prof. Dr. Mohammed Rabea Khairy (ENT)
 
 import { whatsappUrl } from "@/lib/constants/whatsapp";
+import { SOCIAL_LINKS } from "@/lib/constants/socials";
 
 type T = { en: string; ar: string };
 
@@ -50,10 +51,5 @@ Prof. Khairy operates from clinics in New Cairo (Fifth Settlement) and Zagazig, 
   ] as T[],
   phone: "01124427427",
   whatsapp: whatsappUrl("doctor-profile"),
-  socials: {
-    twitter: "https://twitter.com/",
-    linkedin: "https://linkedin.com/",
-    youtube: "https://youtube.com/",
-    researchgate: "https://researchgate.net/",
-  },
+  socials: SOCIAL_LINKS,
 };

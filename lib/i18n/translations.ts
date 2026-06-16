@@ -45,6 +45,7 @@ export const translations = {
         book: "Book via WhatsApp",
         conferences: "ENT Surgeries",
       },
+      followUs: "Follow us",
     },
     stats: {
       experience: "Years of Experience",
@@ -270,10 +271,10 @@ export const translations = {
       copyright: "All rights reserved.",
       disclaimer: "Medical information provided for educational purposes only. Always consult your physician.",
       social: {
-        twitter: "X / Twitter",
-        linkedin: "LinkedIn",
+        facebook: "Facebook",
+        instagram: "Instagram",
         youtube: "YouTube",
-        researchgate: "ResearchGate",
+        tiktok: "TikTok",
       },
     },
     common: {
@@ -354,6 +355,7 @@ export const translations = {
         book: "احجز عبر واتساب",
         conferences: "جراحات الأنف والأذن",
       },
+      followUs: "تابعنا",
     },
     stats: {
       experience: "سنوات الخبرة",
@@ -579,10 +581,10 @@ export const translations = {
       copyright: "جميع الحقوق محفوظة.",
       disclaimer: "المعلومات الطبية مقدمة لأغراض تعليمية فقط. استشر طبيبك دائماً.",
       social: {
-        twitter: "إكس / تويتر",
-        linkedin: "لينكدإن",
+        facebook: "فيسبوك",
+        instagram: "إنستغرام",
         youtube: "يوتيوب",
-        researchgate: "ريزيرش جيت",
+        tiktok: "تيك توك",
       },
     },
     common: {
