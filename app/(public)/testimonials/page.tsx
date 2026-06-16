@@ -3,6 +3,7 @@
 import { Volume2, Play, Quote, Star, ShieldCheck } from "lucide-react";
 import { testimonials } from "@/lib/data/testimonials";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
+import SectionPhotoBackground from "@/components/public/SectionPhotoBackground";
 
 const typeConfig = {
   video: { icon: Play,    bg: "bg-cyan-900" },
@@ -22,7 +23,8 @@ export default function TestimonialsPage() {
   return (
     <>
       {/* Header */}
-      <section className="bg-hero-section relative pt-28 sm:pt-32 lg:pt-36 pb-20 overflow-hidden">
+      <section className="relative pt-28 sm:pt-32 lg:pt-36 pb-20 overflow-hidden">
+        <SectionPhotoBackground variant="hero" />
         <div className="relative max-w-4xl mx-auto px-4 text-center">
           <p className="section-label text-cyan-300 mb-3">{t.testimonials.label}</p>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{t.testimonials.heading}</h1>

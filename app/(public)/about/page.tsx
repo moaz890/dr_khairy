@@ -5,6 +5,7 @@ import { timelineItems } from "@/lib/data/timeline";
 import { doctorProfile } from "@/lib/data/doctor";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { cn } from "@/lib/utils";
+import SectionPhotoBackground from "@/components/public/SectionPhotoBackground";
 
 const typeConfig = {
   education:     { icon: GraduationCap, color: "bg-cyan-900" },
@@ -19,7 +20,8 @@ export default function AboutPage() {
   return (
     <>
       {/* Header */}
-      <section className="bg-hero-section relative pt-32 pb-20 overflow-hidden">
+      <section className="relative pt-32 pb-20 overflow-hidden">
+        <SectionPhotoBackground variant="hero" />
         <div className="relative max-w-4xl mx-auto px-4 text-center">
           <p className="section-label text-cyan-300 mb-3">{t.about.label}</p>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{t.hero.name}</h1>

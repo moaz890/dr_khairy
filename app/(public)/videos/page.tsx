@@ -6,6 +6,7 @@ import { Play } from "lucide-react";
 import { videos, videoCategoryKeys, type VideoCategoryKey } from "@/lib/data/videos";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { cn } from "@/lib/utils";
+import SectionPhotoBackground from "@/components/public/SectionPhotoBackground";
 
 export default function VideosPage() {
   const [activeCategory, setActiveCategory] = useState<VideoCategoryKey>("all");
@@ -20,7 +21,8 @@ export default function VideosPage() {
 
   return (
     <>
-      <section className="bg-hero-section relative pt-32 pb-20 overflow-hidden">
+      <section className="relative pt-32 pb-20 overflow-hidden">
+        <SectionPhotoBackground variant="hero" />
         <div className="relative max-w-4xl mx-auto px-4 text-center">
           <p className="section-label text-cyan-300 mb-3">{t.videos.label}</p>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{t.videos.heading}</h1>

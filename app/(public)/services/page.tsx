@@ -8,6 +8,7 @@ import { serviceNavGroups } from "@/lib/data/navigation";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { cn } from "@/lib/utils";
 import { whatsappUrl } from "@/lib/constants/whatsapp";
+import SectionPhotoBackground from "@/components/public/SectionPhotoBackground";
 
 const categoryIcons: Record<string, React.ElementType> = { Activity, Stethoscope, Heart };
 
@@ -79,7 +80,8 @@ export default function ServicesPage() {
   return (
     <>
       {/* Header */}
-      <section className="bg-hero-section relative pt-32 pb-20 overflow-hidden">
+      <section className="relative pt-32 pb-20 overflow-hidden">
+        <SectionPhotoBackground variant="hero" />
         <div className="relative max-w-4xl mx-auto px-4 text-center">
           <p className="section-label text-cyan-300 mb-3">{t.services.label}</p>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{t.services.heading}</h1>

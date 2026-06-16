@@ -4,6 +4,7 @@ import Link from "next/link";
 import { MessageCircle, Phone } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { whatsappUrl } from "@/lib/constants/whatsapp";
+import SectionPhotoBackground from "@/components/public/SectionPhotoBackground";
 
 interface ContactCTAProps {
   variant?: "default" | "compact";
@@ -33,7 +34,8 @@ export default function ContactCTA({ variant = "default" }: ContactCTAProps) {
   }
 
   return (
-    <section className="bg-surgery-section relative py-16 overflow-hidden">
+    <section className="relative py-16 overflow-hidden">
+      <SectionPhotoBackground variant="surgery" />
       <div className="relative site-container text-center">
         <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">{t.contact.ctaTitle}</h2>
         <p className="text-slate-300 text-base mb-8 max-w-xl mx-auto">{t.contact.ctaDesc}</p>

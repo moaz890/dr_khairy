@@ -7,6 +7,7 @@ import { getServiceBySlug } from "@/lib/data/service-pages";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import Breadcrumbs from "@/components/public/Breadcrumbs";
 import ContactCTA from "@/components/public/ContactCTA";
+import SectionPhotoBackground from "@/components/public/SectionPhotoBackground";
 
 interface BlogArticleContentProps {
   slug: string;
@@ -31,7 +32,8 @@ export default function BlogArticleContent({ slug }: BlogArticleContentProps) {
 
   return (
     <>
-      <section className="bg-hero-section relative pt-32 pb-16 overflow-hidden">
+      <section className="relative pt-32 pb-16 overflow-hidden">
+        <SectionPhotoBackground variant="hero" />
         <div className="relative site-container max-w-3xl">
           <span className="badge-gold text-xs mb-4 inline-block">
             {t.blog.categories[post.category]}

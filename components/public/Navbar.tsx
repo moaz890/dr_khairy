@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, MessageCircle, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -10,12 +9,12 @@ import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { serviceNavGroups } from "@/lib/data/navigation";
 import { whatsappUrl } from "@/lib/constants/whatsapp";
 import LanguageSwitcher from "./LanguageSwitcher";
+import NavbarLogo from "./NavbarLogo";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
-  const [logoError, setLogoError] = useState(false);
   const servicesRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const { t, lang } = useLanguage();
@@ -76,46 +75,13 @@ export default function Navbar() {
     >
       <nav className="w-full px-6 sm:px-8 lg:px-12 xl:px-16" aria-label={t.common.mainNav}>
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="flex items-center gap-2 group shrink-0">
-            {logoError ? (
-              <div
-                className="w-20 h-20 rounded-xl flex items-center justify-center shadow-md group-hover:opacity-80 transition-opacity"
-                style={{ background: "var(--petrol-900)" }}
-              >
-                <span className="text-white font-bold text-2xl">RK</span>
-              </div>
-            ) : (
-              <div className="relative w-20 h-20 rounded-xl overflow-hidden shadow-md group-hover:opacity-80 transition-opacity">
-                <Image
-                  src="/logo.jpg"
-                  alt={t.common.logoAlt}
-                  fill
-                  sizes="80px"
-                  className="object-cover"
-                  onError={() => setLogoError(true)}
-                  priority
-                />
-              </div>
-            )}
-            <div className="hidden sm:block max-w-[11rem] md:max-w-[13rem] lg:max-w-none lg:min-w-0">
-              <p
-                className={cn(
-                  "font-bold text-sm leading-tight transition-colors duration-300 truncate",
-                  scrolled ? "text-slate-900" : "text-slate-600"
-                )}
-              >
-                {t.hero.name}
-              </p>
-              <p
-                className={cn(
-                  "text-xs transition-colors duration-300 line-clamp-1",
-                  scrolled ? "text-slate-600" : "text-slate-400"
-                )}
-              >
-                {t.hero.navTitle}
-              </p>
-            </div>
-          </Link>
+          <NavbarLogo
+            href="/"
+            name={t.hero.name}
+            title={t.hero.navTitle}
+            scrolled={scrolled}
+            logoAlt={t.common.logoAlt}
+          />
 
           <div className="hidden lg:flex items-center gap-0.5">
             <Link href={homeLink.href} className={linkClass(homeLink.href)}>

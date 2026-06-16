@@ -4,6 +4,7 @@ import { MapPin, Phone, MessageCircle, ExternalLink } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { clinics } from "@/lib/data/clinics";
 import { whatsappUrl } from "@/lib/constants/whatsapp";
+import SectionPhotoBackground from "@/components/public/SectionPhotoBackground";
 
 export default function ClinicLocations() {
   const { t, lang } = useLanguage();
@@ -11,8 +12,9 @@ export default function ClinicLocations() {
   return (
     <section
       id="clinic-locations"
-      className="bg-surgery-section relative py-20 px-4 overflow-hidden"
+      className="relative py-20 px-4 overflow-hidden"
     >
+      <SectionPhotoBackground variant="surgery" />
       <div className="site-container">
         <div className="text-center mb-12">
           <p className="text-xs font-semibold tracking-widest uppercase text-cyan-300 mb-3">

@@ -7,6 +7,7 @@ import { useLanguage } from "@/lib/i18n/LanguageContext";
 import Breadcrumbs from "@/components/public/Breadcrumbs";
 import ContactCTA from "@/components/public/ContactCTA";
 import YouTubeEmbed from "@/components/public/YouTubeEmbed";
+import SectionPhotoBackground from "@/components/public/SectionPhotoBackground";
 
 interface VideoDetailContentProps {
   slug: string;
@@ -22,7 +23,8 @@ export default function VideoDetailContent({ slug }: VideoDetailContentProps) {
 
   return (
     <>
-      <section className="bg-hero-section relative pt-32 pb-16 overflow-hidden">
+      <section className="relative pt-32 pb-16 overflow-hidden">
+        <SectionPhotoBackground variant="hero" />
         <div className="relative site-container max-w-4xl">
           <span className="badge-gold text-xs mb-4 inline-block">
             {t.videos.categories[video.category]}

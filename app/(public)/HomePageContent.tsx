@@ -30,6 +30,7 @@ import { testimonials } from "@/lib/data/testimonials";
 import { videos } from "@/lib/data/videos";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import SocialLinks from "@/components/public/SocialLinks";
+import SectionPhotoBackground from "@/components/public/SectionPhotoBackground";
 
 const statIcons: Record<string, React.ElementType> = {
   Calendar,
@@ -46,8 +47,9 @@ export default function HomePageContent() {
       {/* ── HERO SECTION ── */}
       <section
         id="hero"
-        className="bg-hero-section relative min-h-screen flex items-center overflow-hidden pt-28 sm:pt-32 lg:pt-36"
+        className="relative min-h-screen flex items-center overflow-hidden pt-28 sm:pt-32 lg:pt-36"
       >
+        <SectionPhotoBackground variant="hero" />
 
         <div className="relative site-container w-full flex items-center justify-center min-h-[calc(100vh-6rem)] py-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
@@ -349,8 +351,9 @@ export default function HomePageContent() {
       {/* ── BOOKING CTA BANNER ── */}
       <section
         id="booking-cta"
-        className="bg-surgery-section relative py-20 overflow-hidden"
+        className="relative py-20 overflow-hidden"
       >
+        <SectionPhotoBackground variant="surgery" />
         <div className="relative site-container text-center">
           <div className="inline-flex items-center gap-2 bg-amber-700/20 border border-amber-700/40 rounded-full px-4 py-2 mb-6">
             <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />

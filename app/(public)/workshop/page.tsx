@@ -7,6 +7,7 @@ import { clinics } from "@/lib/data/clinics";
 import { getTimeUntil } from "@/lib/utils";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { whatsappUrl } from "@/lib/constants/whatsapp";
+import SectionPhotoBackground from "@/components/public/SectionPhotoBackground";
 
 function CountdownTimer({ targetDate }: { targetDate: string }) {
   const { t } = useLanguage();
@@ -83,7 +84,8 @@ export default function WorkshopPage() {
   return (
     <>
       {/* Hero with countdown */}
-      <section className="bg-hero-section relative pt-28 sm:pt-32 lg:pt-36 pb-24 overflow-hidden">
+      <section className="relative pt-28 sm:pt-32 lg:pt-36 pb-24 overflow-hidden">
+        <SectionPhotoBackground variant="hero" />
         <div className="relative max-w-5xl mx-auto px-4 text-center">
           <div className="inline-flex items-center gap-2 bg-amber-700/20 border border-amber-700/40 rounded-full px-4 py-2 mb-6">
             <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
