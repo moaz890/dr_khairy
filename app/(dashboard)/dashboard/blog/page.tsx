@@ -16,7 +16,7 @@ export default function BlogCMSPage() {
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState<{ title: string; category: BlogPostCategory; excerpt: string; content: string }>({
     title: "",
-    category: blogCategoryKeys[1] as BlogPostCategory,
+    category: blogCategoryKeys[1] as Exclude<BlogCategoryKey, "all">,
     excerpt: "",
     content: "",
   });
@@ -97,13 +97,17 @@ export default function BlogCMSPage() {
                 if (form.title) {
                   setPosts([{
                     id: `b${Date.now()}`,
+                    slug: form.title.toLowerCase().replace(/\s+/g, "-").replace(/[^\w-]/g, ""),
                     title: { en: form.title, ar: form.title },
                     excerpt: { en: form.excerpt, ar: form.excerpt },
+                    body: [{ en: form.content, ar: form.content }],
                     category: form.category,
                     date: new Date().toISOString().split("T")[0],
                     readMinutes: 5,
                     featured: false,
                     gradientClass: "from-cyan-800 to-cyan-700",
+                    relatedServiceSlugs: [],
+                    relatedBlogSlugs: [],
                     status: "published",
                   }, ...posts]);
                   setForm({ title: "", category: blogCategoryKeys[1] as BlogPostCategory, excerpt: "", content: "" });

@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import DashboardSidebar from "@/components/dashboard/Sidebar";
 import { LanguageProvider } from "@/lib/i18n/LanguageContext";
+
+export const metadata: Metadata = {
+  title: "Admin Dashboard",
+  robots: { index: false, follow: false },
+};
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (

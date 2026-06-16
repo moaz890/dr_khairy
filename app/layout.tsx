@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Cairo } from "next/font/google";
+import { siteConfig } from "@/lib/seo/config";
 import "./globals.css";
 
 const inter = Inter({
@@ -16,32 +17,18 @@ const cairo = Cairo({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Prof. Dr. Mohammed Rabea Khairy — ENT Surgeon & Rhinoplasty Specialist",
-    template: "%s | Prof. Dr. Mohammed Rabea Khairy",
+    default: siteConfig.defaultTitle.ar,
+    template: `%s | ${siteConfig.shortName.ar}`,
   },
-  description:
-    "Official website of Prof. Dr. Mohammed Rabea Khairy — Consultant ENT surgeon and rhinoplasty specialist at Cairo University. Specializing in endoscopic sinus surgery, rhinoplasty, tonsillectomy, tympanoplasty, and snoring treatment. Clinics in New Cairo and Zagazig.",
-  keywords: [
-    "Dr Mohammed Rabea Khairy",
-    "ENT Surgeon Cairo",
-    "Rhinoplasty Egypt",
-    "Endoscopic Sinus Surgery",
-    "ENT Specialist Egypt",
-    "Cairo University ENT",
-    "أ.د. محمد ربيع خيري",
-    "جراحة الأنف والأذن القاهرة",
-    "تجميل الأنف مصر",
-  ],
-  authors: [{ name: "Prof. Dr. Mohammed Rabea Khairy" }],
+  description: siteConfig.defaultDescription.ar,
+  authors: [{ name: siteConfig.name.en }],
+  creator: siteConfig.name.en,
+  publisher: siteConfig.name.en,
   icons: {
     icon: [{ url: "/logo.jpg", type: "image/jpeg" }],
     apple: "/logo.jpg",
-  },
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    siteName: "Prof. Dr. Mohammed Rabea Khairy",
   },
 };
 

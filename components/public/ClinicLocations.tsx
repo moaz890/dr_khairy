@@ -3,6 +3,7 @@
 import { MapPin, Phone, MessageCircle, ExternalLink } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { clinics } from "@/lib/data/clinics";
+import { whatsappUrl } from "@/lib/constants/whatsapp";
 
 export default function ClinicLocations() {
   const { t, lang } = useLanguage();
@@ -73,7 +74,7 @@ export default function ClinicLocations() {
           </a>
           <div>
             <a
-              href="https://wa.me/201124427427"
+              href={whatsappUrl("clinic-locations")}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-book"

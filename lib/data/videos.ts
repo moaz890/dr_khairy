@@ -6,6 +6,7 @@ export type VideoCategoryKey = "all" | "education" | "media" | "tips" | "confere
 
 export interface Video {
   id: string;
+  slug: string;
   title: T;
   description: T;
   category: Exclude<VideoCategoryKey, "all">;
@@ -27,6 +28,7 @@ export const videoCategoryKeys: VideoCategoryKey[] = [
 export const videos: Video[] = [
   {
     id: "v1",
+    slug: "chronic-sinusitis-causes-solutions",
     title: {
       en: "Understanding Chronic Sinusitis — Causes & Surgical Solutions",
       ar: "فهم التهاب الجيوب الأنفية المزمن — الأسباب والحلول الجراحية",
@@ -43,6 +45,7 @@ export const videos: Video[] = [
   },
   {
     id: "v2",
+    slug: "rhinoplasty-procedure-explained",
     title: {
       en: "Rhinoplasty in 5 Minutes — What Really Happens in the Operating Room",
       ar: "تجميل الأنف في ٥ دقائق — ماذا يحدث فعلاً في غرفة العمليات",
@@ -59,6 +62,7 @@ export const videos: Video[] = [
   },
   {
     id: "v3",
+    slug: "tonsillectomy-children-guide",
     title: {
       en: "Tonsil Removal: When Is It Necessary for Children?",
       ar: "استئصال اللوزتين: متى يكون ضرورياً للأطفال؟",
@@ -75,6 +79,7 @@ export const videos: Video[] = [
   },
   {
     id: "v4",
+    slug: "snoring-vs-sleep-apnea-video",
     title: {
       en: "Snoring vs Sleep Apnea — Prof. Khairy Explains the Difference",
       ar: "الشخير مقابل انقطاع النفس — الأستاذ الدكتور خيري يوضح الفرق",
@@ -91,6 +96,7 @@ export const videos: Video[] = [
   },
   {
     id: "v5",
+    slug: "fess-patient-journey",
     title: {
       en: "Endoscopic Sinus Surgery (FESS) — Before & After Patient Journey",
       ar: "جراحة الجيوب الأنفية بالمنظار — رحلة المريض قبل وبعد العملية",
@@ -107,6 +113,7 @@ export const videos: Video[] = [
   },
   {
     id: "v6",
+    slug: "tympanoplasty-guide",
     title: {
       en: "Eardrum Repair (Tympanoplasty) — Patient Education Guide",
       ar: "ترقيع الطبلة (تيمبانوبلاستي) — دليل تثقيف المرضى",
@@ -123,6 +130,7 @@ export const videos: Video[] = [
   },
   {
     id: "v7",
+    slug: "ventilation-tubes-parents-guide",
     title: {
       en: "Ventilation Tubes for Kids — A Parent's Guide",
       ar: "أنابيب التهوية للأطفال — دليل للأهل",
@@ -139,6 +147,7 @@ export const videos: Video[] = [
   },
   {
     id: "v8",
+    slug: "deviated-septum-non-surgical",
     title: {
       en: "Deviated Septum: Can You Fix It Without Surgery?",
       ar: "انحراف الحاجز الأنفي: هل يمكن علاجه دون جراحة؟",
@@ -155,6 +164,7 @@ export const videos: Video[] = [
   },
   {
     id: "v9",
+    slug: "rhinoplasty-recovery-timeline",
     title: {
       en: "Rhinoplasty Recovery Timeline — Day by Day",
       ar: "جدول التعافي بعد تجميل الأنف — يوماً بيوم",
@@ -170,3 +180,9 @@ export const videos: Video[] = [
     thumbnailGradient: "from-cyan-900 to-indigo-800",
   },
 ];
+
+export function getVideoBySlug(slug: string): Video | undefined {
+  return videos.find((v) => v.slug === slug);
+}
+
+export const videoSlugs: string[] = videos.map((v) => v.slug);

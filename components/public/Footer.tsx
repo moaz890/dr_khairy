@@ -7,25 +7,24 @@ import { Phone, MapPin, Share2, Globe, Play, ExternalLink, BookMarked, MessageCi
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { doctorProfile } from "@/lib/data/doctor";
 import { clinics } from "@/lib/data/clinics";
+import { footerServiceLinks } from "@/lib/data/navigation";
+import { whatsappUrl } from "@/lib/constants/whatsapp";
 
 export default function Footer() {
   const [logoError, setLogoError] = useState(false);
   const { t, lang } = useLanguage();
 
   const quickLinks = [
+    { href: "/", label: t.nav.home },
     { href: "/about", label: t.nav.about },
-    { href: "/services", label: t.nav.services },
-    { href: "/videos", label: t.nav.videos },
-    { href: "/conferences", label: t.nav.conferences },
     { href: "/blog", label: t.nav.blog },
-    { href: "/workshop", label: t.nav.workshop },
+    { href: "/contact", label: t.nav.contact },
   ];
 
   return (
     <footer className="bg-slate-900 text-slate-300">
       <div className="site-container py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-4">
               {logoError ? (
@@ -74,7 +73,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">{t.footer.quickLinks}</h3>
             <ul className="space-y-2.5">
@@ -89,30 +87,37 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Specialties */}
           <div>
             <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">{t.footer.specialties}</h3>
             <ul className="space-y-2.5">
-              {doctorProfile.specializations.map((s) => (
-                <li key={s.en} className="text-sm text-slate-400 flex items-center gap-1.5">
-                  <span className="bullet-sm" />
-                  {s[lang]}
+              {footerServiceLinks.map((link) => (
+                <li key={link.slug}>
+                  <Link
+                    href={`/services/${link.slug}`}
+                    className="text-sm text-slate-400 hover:text-amber-400 transition-colors flex items-center gap-1.5"
+                  >
+                    <span className="bullet-sm" />
+                    {link.label[lang]}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
             <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">{t.footer.contact}</h3>
             <ul className="space-y-4">
               {clinics.map((clinic) => (
-                <li key={clinic.id} className="flex items-start gap-3">
-                  <MapPin size={16} className="text-amber-500 mt-0.5 shrink-0" />
-                  <div>
-                    <p className="text-sm font-medium text-white">{clinic.branch[lang]}</p>
-                    <p className="text-sm text-slate-400 leading-relaxed">{clinic.address[lang]}</p>
-                  </div>
+                <li key={clinic.id}>
+                  <Link href={`/clinics/${clinic.slug}`} className="flex items-start gap-3 group">
+                    <MapPin size={16} className="text-amber-500 mt-0.5 shrink-0" />
+                    <div>
+                      <p className="text-sm font-medium text-white group-hover:text-amber-400 transition-colors">
+                        {clinic.branch[lang]}
+                      </p>
+                      <p className="text-sm text-slate-400 leading-relaxed">{clinic.address[lang]}</p>
+                    </div>
+                  </Link>
                 </li>
               ))}
               <li className="flex items-center gap-3">
@@ -124,7 +129,7 @@ export default function Footer() {
             </ul>
             <div className="mt-6">
               <a
-                href="https://wa.me/201124427427"
+                href={whatsappUrl("footer")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm text-amber-500 hover:text-amber-400 font-medium transition-colors"
@@ -138,7 +143,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom Bar */}
       <div className="border-t border-slate-800">
         <div className="site-container py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-slate-400">© {new Date().getFullYear()} {t.hero.name}. {t.footer.copyright}</p>

@@ -1,5 +1,7 @@
 // Doctor profile — Prof. Dr. Mohammed Rabea Khairy (ENT)
 
+import { whatsappUrl } from "@/lib/constants/whatsapp";
+
 type T = { en: string; ar: string };
 
 export const doctorProfile = {
@@ -47,7 +49,7 @@ Prof. Khairy operates from clinics in New Cairo (Fifth Settlement) and Zagazig, 
     { en: "Rhinoplasty (Nose Reshaping)", ar: "تجميل الأنف" },
   ] as T[],
   phone: "01124427427",
-  whatsapp: "https://wa.me/201124427427",
+  whatsapp: whatsappUrl("doctor-profile"),
   socials: {
     twitter: "https://twitter.com/",
     linkedin: "https://linkedin.com/",

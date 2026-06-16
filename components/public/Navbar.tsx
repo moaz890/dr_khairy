@@ -1,30 +1,30 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, MessageCircle } from "lucide-react";
+import { Menu, X, MessageCircle, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { serviceNavGroups } from "@/lib/data/navigation";
+import { whatsappUrl } from "@/lib/constants/whatsapp";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const [logoError, setLogoError] = useState(false);
+  const servicesRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   const navLinks = [
-    { href: "/", label: t.nav.home },
-    { href: "/about", label: t.nav.about },
-    { href: "/services", label: t.nav.services },
-    { href: "/videos", label: t.nav.videos },
-    { href: "/conferences", label: t.nav.conferences },
     { href: "/blog", label: t.nav.blog },
-    { href: "/testimonials", label: t.nav.testimonials },
-    { href: "/workshop", label: t.nav.workshop },
+    { href: "/before-after", label: t.nav.beforeAfter },
+    { href: "/about", label: t.nav.about },
+    { href: "/contact", label: t.nav.contact },
   ];
 
   useEffect(() => {
@@ -32,6 +32,23 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    setMobileOpen(false);
+    setServicesOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (servicesRef.current && !servicesRef.current.contains(e.target as Node)) {
+        setServicesOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const isServicesActive = pathname.startsWith("/services");
 
   return (
     <header
@@ -44,7 +61,6 @@ export default function Navbar() {
     >
       <nav className="w-full px-6 sm:px-8 lg:px-12 xl:px-16" aria-label={t.common.mainNav}>
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group shrink-0">
             {logoError ? (
               <div
@@ -86,8 +102,65 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-0.5">
+            <div className="relative" ref={servicesRef}>
+              <button
+                type="button"
+                onClick={() => setServicesOpen(!servicesOpen)}
+                className={cn(
+                  "flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200",
+                  isServicesActive
+                    ? scrolled
+                      ? "text-amber-600 font-semibold"
+                      : "text-amber-400 font-semibold"
+                    : scrolled
+                      ? "text-slate-700 hover:text-slate-900 hover:bg-slate-50"
+                      : "text-slate-500 hover:text-slate-700 hover:bg-white/10"
+                )}
+                aria-expanded={servicesOpen}
+              >
+                {t.nav.services}
+                <ChevronDown
+                  size={14}
+                  className={cn("transition-transform", servicesOpen && "rotate-180")}
+                />
+              </button>
+
+              {servicesOpen && (
+                <div className="absolute top-full start-0 mt-2 w-[640px] bg-white rounded-2xl shadow-2xl border border-slate-200 p-6 grid grid-cols-2 gap-6 animate-slide-up">
+                  {serviceNavGroups.map((group) => (
+                    <div key={group.id}>
+                      <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">
+                        {group.label[lang]}
+                      </p>
+                      <ul className="space-y-1.5">
+                        {group.links.map((link) => (
+                          <li key={link.slug}>
+                            <Link
+                              href={`/services/${link.slug}`}
+                              className="text-sm text-slate-700 hover:text-cyan-800 hover:bg-cyan-50 px-2 py-1.5 rounded-lg block transition-colors"
+                              onClick={() => setServicesOpen(false)}
+                            >
+                              {link.label[lang]}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                  <div className="col-span-2 pt-3 border-t border-slate-100">
+                    <Link
+                      href="/services"
+                      className="text-sm font-medium text-cyan-900 hover:text-primary transition-colors"
+                      onClick={() => setServicesOpen(false)}
+                    >
+                      {t.home.viewAllServices} →
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
+
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -95,11 +168,11 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-transparent",
+                    "px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200",
                     isActive
                       ? scrolled
-                        ? "text-amber-600 font-semibold border-b-2 border-amber-600 pb-0.5"
-                        : "text-amber-400 font-semibold border-b-2 border-amber-400 pb-0.5"
+                        ? "text-amber-600 font-semibold"
+                        : "text-amber-400 font-semibold"
                       : scrolled
                         ? "text-slate-700 hover:text-slate-900 hover:bg-slate-50"
                         : "text-slate-500 hover:text-slate-700 hover:bg-white/10"
@@ -111,11 +184,10 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* Right: CTA + Language Switcher */}
           <div className="hidden lg:flex items-center gap-3 shrink-0">
             <LanguageSwitcher dark={!scrolled} />
             <a
-              href="https://wa.me/201124427427"
+              href={whatsappUrl("navbar")}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-book text-sm py-2.5 px-5"
@@ -125,7 +197,6 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Mobile Toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className={cn(
@@ -141,36 +212,49 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Menu */}
       {mobileOpen && (
-        <div id="mobile-nav" className="lg:hidden bg-white border-t border-slate-200 shadow-xl animate-slide-up">
-          <div className="w-full px-6 sm:px-8 lg:px-12 xl:px-16 py-4 space-y-1">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href;
-              return (
+        <div id="mobile-nav" className="lg:hidden bg-white border-t border-slate-200 shadow-xl animate-slide-up max-h-[80vh] overflow-y-auto">
+          <div className="w-full px-6 py-4 space-y-1">
+            <p className="px-4 py-2 text-xs font-bold text-slate-400 uppercase tracking-wider">
+              {t.nav.services}
+            </p>
+            {serviceNavGroups.map((group) => (
+              <div key={group.id} className="mb-3">
+                <p className="px-4 py-1 text-xs font-semibold text-slate-500">{group.label[lang]}</p>
+                {group.links.map((link) => (
+                  <Link
+                    key={link.slug}
+                    href={`/services/${link.slug}`}
+                    className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-lg"
+                  >
+                    {link.label[lang]}
+                  </Link>
+                ))}
+              </div>
+            ))}
+            <Link href="/services" className="block px-4 py-2 text-sm font-medium text-cyan-900">
+              {t.home.viewAllServices}
+            </Link>
+
+            <div className="border-t border-slate-100 my-3 pt-3 space-y-1">
+              {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className={cn(
-                    "block px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 bg-transparent",
-                    isActive
-                      ? "text-amber-600 font-semibold border-b-2 border-amber-600 pb-0.5"
-                      : "text-slate-600 hover:bg-slate-50"
-                  )}
+                  className="block px-4 py-3 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-50"
                 >
                   {link.label}
                 </Link>
-              );
-            })}
-            <div className="pt-3 border-t border-slate-100 flex items-center gap-3 mt-3">
+              ))}
+            </div>
+
+            <div className="pt-3 border-t border-slate-100 flex items-center gap-3">
               <LanguageSwitcher />
               <a
-                href="https://wa.me/201124427427"
+                href={whatsappUrl("navbar")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-book flex-1 justify-center py-3 text-sm"
-                onClick={() => setMobileOpen(false)}
               >
                 <MessageCircle size={18} />
                 {t.nav.bookWhatsApp}

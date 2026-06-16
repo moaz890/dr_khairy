@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { Clock, ArrowRight, X, Check, HelpCircle } from "lucide-react";
 import { blogPosts, mythFacts, blogCategoryKeys, type BlogCategoryKey } from "@/lib/data/blog";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
@@ -50,8 +52,27 @@ function MythFactCard({ item }: { item: (typeof mythFacts)[0] }) {
 }
 
 export default function BlogPage() {
+  return (
+    <Suspense fallback={null}>
+      <BlogPageContent />
+    </Suspense>
+  );
+}
+
+function BlogPageContent() {
+  const searchParams = useSearchParams();
+  const categoryParam = searchParams.get("category");
   const [activeCategory, setActiveCategory] = useState<BlogCategoryKey>("all");
   const { t, lang } = useLanguage();
+
+  useEffect(() => {
+    if (
+      categoryParam &&
+      blogCategoryKeys.includes(categoryParam as BlogCategoryKey)
+    ) {
+      setActiveCategory(categoryParam as BlogCategoryKey);
+    }
+  }, [categoryParam]);
 
   const filtered =
     activeCategory === "all"
@@ -81,7 +102,7 @@ export default function BlogPage() {
             </div>
             <div className="grid md:grid-cols-2 gap-6 mb-12">
               {featured.map((post) => (
-                <article key={post.id} className="card-premium overflow-hidden group cursor-pointer">
+                <Link key={post.id} href={`/blog/${post.slug}`} className="card-premium overflow-hidden group">
                   <div className={`h-48 bg-gradient-to-br ${post.gradientClass} relative flex items-end p-5`}>
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300" />
                     <div className="relative">
@@ -101,7 +122,7 @@ export default function BlogPage() {
                       </span>
                     </div>
                   </div>
-                </article>
+                </Link>
               ))}
             </div>
           </div>
@@ -126,7 +147,7 @@ export default function BlogPage() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((post) => (
-              <article key={post.id} className="card-premium overflow-hidden group cursor-pointer">
+              <Link key={post.id} href={`/blog/${post.slug}`} className="card-premium overflow-hidden group">
                 <div className={`h-36 bg-gradient-to-br ${post.gradientClass} relative`}>
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition" />
                   <div className="absolute top-3 start-3">
@@ -146,7 +167,7 @@ export default function BlogPage() {
                     </span>
                   </div>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>

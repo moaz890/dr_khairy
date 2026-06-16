@@ -6,6 +6,7 @@ import { upcomingWorkshop } from "@/lib/data/workshop";
 import { clinics } from "@/lib/data/clinics";
 import { getTimeUntil } from "@/lib/utils";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { whatsappUrl } from "@/lib/constants/whatsapp";
 
 function CountdownTimer({ targetDate }: { targetDate: string }) {
   const { t } = useLanguage();
@@ -46,7 +47,7 @@ function BookingPanel() {
     <div className="space-y-5">
       <p className="text-slate-600 text-sm leading-relaxed">{t.workshop.bookClinicDesc}</p>
       <a
-        href="https://wa.me/201124427427"
+        href={whatsappUrl("workshop")}
         target="_blank"
         rel="noopener noreferrer"
         className="btn-book w-full justify-center py-3.5"

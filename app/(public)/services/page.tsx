@@ -1,10 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { ChevronDown, ChevronUp, Activity, Stethoscope, Heart, ChevronRight, AlertCircle } from "lucide-react";
 import { serviceCategories, type ServiceCategory, type Condition } from "@/lib/data/services";
+import { serviceNavGroups } from "@/lib/data/navigation";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { cn } from "@/lib/utils";
+import { whatsappUrl } from "@/lib/constants/whatsapp";
 
 const categoryIcons: Record<string, React.ElementType> = { Activity, Stethoscope, Heart };
 
@@ -129,8 +132,25 @@ export default function ServicesPage() {
                 <p className="font-semibold text-slate-900 mb-1">{t.services.noCondition}</p>
                 <p className="text-sm text-slate-500">{t.services.noConditionDesc}</p>
               </div>
-              <a href="https://wa.me/201124427427" target="_blank" rel="noopener noreferrer" className="btn-book shrink-0 whitespace-nowrap">{t.services.book}</a>
+              <a href={whatsappUrl("services-hub")} target="_blank" rel="noopener noreferrer" className="btn-book shrink-0 whitespace-nowrap">{t.services.book}</a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-white pb-16">
+        <div className="site-container">
+          <h2 className="text-2xl font-bold text-slate-900 text-center mb-10">{t.services.allServices}</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+            {serviceNavGroups.flatMap((g) => g.links).map((link) => (
+              <Link
+                key={link.slug}
+                href={`/services/${link.slug}`}
+                className="px-4 py-3 rounded-xl border border-slate-200 bg-white text-sm font-medium text-slate-700 hover:border-cyan-300 hover:bg-cyan-50 transition-colors text-center"
+              >
+                {link.label[lang]}
+              </Link>
+            ))}
           </div>
         </div>
       </section>
