@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 import {
   Calendar,
   Globe,
@@ -19,8 +20,10 @@ import { doctorProfile } from "@/lib/data/doctor";
 import { getServiceBySlug } from "@/lib/data/service-pages";
 import { homepageServiceGroups } from "@/lib/data/navigation";
 import { blogPosts } from "@/lib/data/blog";
-import { beforeAfterCases } from "@/lib/data/before-after";
-import BeforeAfterImage from "@/components/public/BeforeAfterImage";
+import { beforeAfterVideos } from "@/lib/data/before-after-videos";
+import BeforeAfterVideoCard from "@/components/public/BeforeAfterVideoCard";
+import VideoPlayerModal from "@/components/public/VideoPlayerModal";
+import type { BeforeAfterVideo } from "@/lib/data/before-after-videos";
 import { differentiators } from "@/lib/data/differentiators";
 import { whatsappUrl } from "@/lib/constants/whatsapp";
 import { testimonials } from "@/lib/data/testimonials";
@@ -36,6 +39,7 @@ const statIcons: Record<string, React.ElementType> = {
 
 export default function HomePageContent() {
   const { t, lang } = useLanguage();
+  const [activeBaVideo, setActiveBaVideo] = useState<BeforeAfterVideo | null>(null);
   return (
     <>
       {/* ── HERO SECTION ── */}
@@ -288,13 +292,12 @@ export default function HomePageContent() {
             <p className="section-sub">{t.home.beforeAfterDesc}</p>
           </div>
           <div className="grid sm:grid-cols-3 gap-6 mb-8">
-            {beforeAfterCases.slice(0, 3).map((item) => (
-              <div key={item.id} className="card-premium overflow-hidden">
-                <BeforeAfterImage item={item} className="h-40" />
-                <div className="p-4">
-                  <h3 className="font-semibold text-slate-900 text-sm">{item.title[lang]}</h3>
-                </div>
-              </div>
+            {beforeAfterVideos.slice(0, 3).map((video) => (
+              <BeforeAfterVideoCard
+                key={video.id}
+                video={video}
+                onPlay={setActiveBaVideo}
+              />
             ))}
           </div>
           <div className="text-center">
@@ -455,6 +458,8 @@ export default function HomePageContent() {
           </div>
         </div>
       </section>
+
+      <VideoPlayerModal video={activeBaVideo} onClose={() => setActiveBaVideo(null)} />
     </>
   );
 }

@@ -98,6 +98,9 @@ export const translations = {
       before: "Before",
       after: "After",
       exploreServices: "Explore Related Services",
+      videoHeading: "Surgery Results — Before & After Videos",
+      videoSubheading: "Watch real rhinoplasty outcomes. Tap play to view each case in a short before-and-after video.",
+      photoHeading: "Photo Gallery",
     },
     servicePage: {
       label: "Medical Service",
@@ -404,6 +407,9 @@ export const translations = {
       before: "قبل",
       after: "بعد",
       exploreServices: "استكشف الخدمات ذات الصلة",
+      videoHeading: "نتائج العمليات — فيديوهات قبل وبعد",
+      videoSubheading: "شاهد نتائج تجميل الأنف الحقيقية. اضغط تشغيل لمشاهدة كل حالة في فيديو قصير قبل وبعد.",
+      photoHeading: "معرض الصور",
     },
     servicePage: {
       label: "خدمة طبية",

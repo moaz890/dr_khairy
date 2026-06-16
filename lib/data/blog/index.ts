@@ -1,5 +1,6 @@
 import { initialBlogPosts, mythFacts } from "./initial-posts";
 import { extendedBlogPosts } from "./posts-extended";
+import { applyBlogEnrichment } from "./enriched/apply";
 
 export type {
   BlogPost,
@@ -12,7 +13,10 @@ export type {
 export { blogCategoryKeys, categoryGradients } from "./types";
 export { createBlogPost, bodyFromTopic, defaultCta } from "./factory";
 
-export const blogPosts = [...initialBlogPosts, ...extendedBlogPosts];
+export const blogPosts = [
+  ...initialBlogPosts,
+  ...applyBlogEnrichment(extendedBlogPosts),
+];
 
 export function getBlogPostBySlug(slug: string) {
   return blogPosts.find((p) => p.slug === slug);
