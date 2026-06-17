@@ -5,9 +5,12 @@ import { getSitemapEntries } from "@/lib/seo/sitemap-entries";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries = getSitemapEntries();
+  const now = new Date();
+
+  // Core, services, clinics, and local landing pages from registry
   const staticPages = entries.map((entry) => ({
     url: entry.path === "/" ? siteConfig.url : `${siteConfig.url}${entry.path}`,
-    lastModified: entry.lastModified ?? new Date(),
+    lastModified: entry.lastModified ?? now,
     changeFrequency: entry.changeFrequency,
     priority: entry.priority,
   }));

@@ -141,3 +141,21 @@ export function createServiceMetadata(slug: string): Metadata | null {
   }
   return createPageMetadata(key);
 }
+
+const localPageKeyMap: Record<string, SeoPageKey> = {
+  "cairo/rhinoplasty": "local/cairo-rhinoplasty",
+  "cairo/ent-specialist": "local/cairo-ent-specialist",
+  "zagazig/rhinoplasty": "local/zagazig-rhinoplasty",
+  "zagazig/sinus-surgery": "local/zagazig-sinus-surgery",
+};
+
+/**
+ * Builds metadata for city/topic local SEO landing pages.
+ */
+export function createLocalPageMetadata(city: string, topic: string): Metadata | null {
+  const key = localPageKeyMap[`${city}/${topic}`];
+  if (!key) {
+    return null;
+  }
+  return createPageMetadata(key);
+}

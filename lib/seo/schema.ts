@@ -23,22 +23,45 @@ export function buildFaqPageSchema(
   };
 }
 
+/**
+ * BreadcrumbList schema for SERP breadcrumb display.
+ * Pass items as [{name, url}] starting from root.
+ */
+export function buildBreadcrumbSchema(
+  items: { name: string; url: string }[]
+): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
+}
+
 export function buildLocalBusinessSchema(): Record<string, unknown>[] {
   return clinics.map((clinic) => ({
     "@context": "https://schema.org",
-    "@type": "MedicalBusiness",
+    "@type": ["MedicalClinic", "MedicalBusiness"],
     name: `${siteConfig.name.ar} — ${clinic.branch.ar}`,
     alternateName: `${siteConfig.name.en} — ${clinic.branch.en}`,
     description: siteConfig.defaultDescription.ar,
     url: `${siteConfig.url}/clinics/${clinic.slug}`,
     telephone: clinic.phone,
     image: `${siteConfig.url}${siteConfig.ogImage}`,
+    priceRange: "$$",
+    currenciesAccepted: "EGP",
+    paymentAccepted: "Cash, Credit Card",
     address: {
       "@type": "PostalAddress",
       streetAddress: clinic.address.ar,
-      addressLocality: clinic.slug === "zagazig" ? "Zagazig" : "New Cairo",
+      addressLocality: clinic.slug === "zagazig" ? "الزقازيق" : "القاهرة الجديدة",
       addressRegion: clinic.slug === "zagazig" ? "Sharqia" : "Cairo",
       addressCountry: "EG",
+      postalCode: clinic.slug === "zagazig" ? "44511" : "11835",
     },
     geo: {
       "@type": "GeoCoordinates",
@@ -57,6 +80,13 @@ export function buildLocalBusinessSchema(): Record<string, unknown>[] {
       "Otolaryngologic",
       "PlasticSurgery",
     ],
+    hasMap: clinic.mapsUrl,
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: clinic.phone,
+      contactType: "appointment",
+      availableLanguage: ["Arabic", "English"],
+    },
     sameAs: [
       doctorProfile.socials.facebook,
       doctorProfile.socials.instagram,
@@ -87,6 +117,11 @@ export function buildPhysicianSchema(): Record<string, unknown> {
       "FESS",
       "Tonsillectomy",
       "Sleep Apnea",
+      "Revision Rhinoplasty",
+      "Nasal Polyps",
+      "Deviated Septum",
+      "Tinnitus",
+      "Vertigo",
     ],
     worksFor: {
       "@type": "MedicalOrganization",
@@ -130,11 +165,16 @@ export function buildArticleSchema(options: {
     author: {
       "@type": "Physician",
       name: doctorProfile.name.en,
+      url: `${siteConfig.url}/about`,
     },
     publisher: {
       "@type": "MedicalOrganization",
       name: siteConfig.name.en,
       url: siteConfig.url,
+      logo: {
+        "@type": "ImageObject",
+        url: `${siteConfig.url}${siteConfig.ogImage}`,
+      },
     },
   };
 }
@@ -153,11 +193,20 @@ export function buildMedicalWebPageSchema(options: {
     author: {
       "@type": "Physician",
       name: doctorProfile.name.en,
+      url: `${siteConfig.url}/about`,
     },
     publisher: {
       "@type": "MedicalOrganization",
       name: siteConfig.name.en,
       url: siteConfig.url,
+    },
+    medicalAudience: {
+      "@type": "Patient",
+      audienceType: "Patient",
+      geographicArea: {
+        "@type": "Country",
+        name: "Egypt",
+      },
     },
   };
 }

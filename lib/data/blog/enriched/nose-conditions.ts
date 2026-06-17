@@ -160,4 +160,26 @@ export const noseConditionsEnrichment: EnrichedMap = {
     ],
     readMinutes: 8,
   },
+  "deviated-septum-headaches": {
+    excerpt: {
+      en: "A deviated septum can trigger facial pressure and sinus-type headaches by blocking airflow and sinus drainage. Learn when septoplasty helps.",
+      ar: "قد يسبب انحراف الحاجز ضغطاً وجهياً وصداعاً شبيهاً بالجيوب بانسداد تدفق الهواء وتصريف الجيوب. تعرّف متى تفيد عملية الحاجز.",
+    },
+    body: [
+      {
+        en: "When the septum deviates severely, one nasal passage narrows. Increased airflow resistance creates negative pressure in the sinuses and frontal region — felt as pressure behind the eyes, across the cheeks, or in the forehead.",
+        ar: "عند انحراف الحاجز بشدة، يضيق أحد الممرين الأنفيين. مقاومة تدفق الهواء تخلق ضغطاً سالباً في الجيوب والمنطقة الأمامية — يُحس كضغط خلف العينين أو عبر الخدين أو في الجبهة.",
+      },
+      {
+        en: "Headaches from septal deviation often worsen with colds or allergies when mucosal swelling adds to the blockage. They may improve temporarily with decongestants but return when medication wears off.",
+        ar: "صداع انحراف الحاجز يتفاقم غالباً مع البرد أو الحساسية عندما يضيف تورم الغشاء للانسداد. قد يتحسن مؤقتاً بمضادات الاحتقان لكنه يعود عند زوال الدواء.",
+      },
+      {
+        en: "Septoplasty straightens the septum and restores balanced airflow. If headaches persist after surgery, migraine or tension headache should be evaluated separately.",
+        ar: "عملية الحاجز تقوّم الحاجز وتستعيد تدفقاً متوازناً. إن استمر الصداع بعد الجراحة، يُقيّم الصداع النصفي أو التوتر بشكل منفصل.",
+      },
+      { en: cta.en, ar: cta.ar },
+    ],
+    readMinutes: 7,
+  },
 };

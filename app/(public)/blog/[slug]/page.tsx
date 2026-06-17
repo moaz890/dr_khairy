@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { getBlogPostBySlug, blogSlugs } from "@/lib/data/blog";
 import JsonLd from "@/components/seo/JsonLd";
 import { siteConfig } from "@/lib/seo/config";
-import { buildArticleSchema, buildMedicalWebPageSchema } from "@/lib/seo/schema";
+import { buildArticleSchema, buildMedicalWebPageSchema, buildBreadcrumbSchema } from "@/lib/seo/schema";
 import BlogArticleContent from "./BlogArticleContent";
 
 type Props = {
@@ -23,6 +23,12 @@ export default async function BlogArticlePage({ params }: Props) {
 
   const url = `${siteConfig.url}/blog/${slug}`;
 
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "الرئيسية", url: siteConfig.url },
+    { name: "المدونة", url: `${siteConfig.url}/blog` },
+    { name: post.title.ar, url },
+  ]);
+
   return (
     <>
       <JsonLd
@@ -38,6 +44,7 @@ export default async function BlogArticlePage({ params }: Props) {
             url,
             datePublished: post.date,
           }),
+          breadcrumbSchema,
         ]}
       />
       <BlogArticleContent slug={slug} />

@@ -33,6 +33,25 @@ export const metadata: Metadata = {
   verification: {
     google: "nhhQIouJ78TwnFBgw5WSY3yiXIjVaqAnFrFPd1tg5d4",
   },
+  // Global OG fallback — overridden per page by generateMetadata()
+  openGraph: {
+    siteName: siteConfig.name.ar,
+    locale: siteConfig.localeOpenGraph.ar,
+    type: "website",
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 630,
+        alt: siteConfig.defaultTitle.ar,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@drrabiekhairy",
+    creator: "@drrabiekhairy",
+  },
 };
 
 export default function RootLayout({
@@ -41,8 +60,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // dir and lang are set dynamically on the client via LanguageContext
-    <html lang="en" dir="ltr" className={`${inter.variable} ${cairo.variable}`}>
+    // lang/dir are set dynamically on client via LanguageContext
+    // Default is Arabic (primary market) for correct Google Egypt targeting
+    <html lang="ar" dir="rtl" className={`${inter.variable} ${cairo.variable}`}>
       <body className="antialiased">{children}</body>
     </html>
   );

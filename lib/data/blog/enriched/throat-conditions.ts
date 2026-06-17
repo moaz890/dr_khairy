@@ -116,4 +116,26 @@ export const throatConditionsEnrichment: EnrichedMap = {
     ],
     readMinutes: 7,
   },
+  "adenoids-affect-hearing": {
+    excerpt: {
+      en: "Enlarged adenoids block the Eustachian tube and cause middle ear fluid — a common cause of hearing loss and recurrent ear infections in children.",
+      ar: "اللحمية المتضخمة تعيق قناة استاكيوس وتسبب سوائل في الأذن الوسطى — سبب شائع لضعف السمع والتهابات الأذن المتكررة عند الأطفال.",
+    },
+    body: [
+      {
+        en: "Adenoids sit at the back of the nasal cavity near the Eustachian tube opening. When enlarged from chronic infection or allergy, they physically obstruct the tube that ventilates the middle ear.",
+        ar: "اللحمية في مؤخرة التجويف الأنفي قرب فتحة قناة استاكيوس. عند التضخم من عدوى مزمنة أو حساسية، تعيق أنبوب تهوية الأذن الوسطى.",
+      },
+      {
+        en: "Blocked ventilation traps fluid behind the eardrum (otitis media with effusion). Children may not complain — parents notice TV volume increasing, inattention, or speech delay. Audiometry confirms conductive hearing loss.",
+        ar: "انسداد التهوية يحبس سوائل خلف الطبلة (التهاب أذن وسطى مع تجمع). قد لا يشكو الأطفال — يلاحظ الآباء رفع صوت التلفزيون أو ضعف انتباه أو تأخر كلام. تخطيط السمع يؤكد ضعفاً توصيلياً.",
+      },
+      {
+        en: "Adenoidectomy restores Eustachian tube function in most cases. Ventilation tubes may be placed simultaneously if fluid is persistent. Hearing typically normalises within weeks of adenoid removal.",
+        ar: "استئصال اللحمية يستعيد وظيفة قناة استاكيوس في معظم الحالات. قد توضع أنابيب تهوية معاً إن استمرت السوائل. السمع يعود طبيعياً عادة خلال أسابيع من إزالة اللحمية.",
+      },
+      { en: cta.en, ar: cta.ar },
+    ],
+    readMinutes: 7,
+  },
 };

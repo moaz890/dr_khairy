@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { MapPin, MessageCircle, Phone, Clock } from "lucide-react";
 import { getClinicBySlug } from "@/lib/data/clinics";
+import { getLocalPagesByCity } from "@/lib/data/local-pages";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import Breadcrumbs from "@/components/public/Breadcrumbs";
 import PageHero from "@/components/public/PageHero";
@@ -17,6 +18,9 @@ export default function ClinicDetailContent({ slug }: ClinicDetailPageProps) {
   const clinic = getClinicBySlug(slug);
 
   if (!clinic) return null;
+
+  const cityKey = slug === "zagazig" ? "zagazig" : "cairo";
+  const areaPages = getLocalPagesByCity(cityKey);
 
   return (
     <>
@@ -89,6 +93,23 @@ export default function ClinicDetailContent({ slug }: ClinicDetailPageProps) {
           </div>
 
           <p className="text-slate-600 leading-relaxed mb-8">{t.clinicsPage.detailDesc}</p>
+
+          {areaPages.length > 0 && (
+            <div className="mb-8">
+              <h2 className="text-lg font-bold text-slate-900 mb-4">{t.clinicsPage.localPages}</h2>
+              <div className="flex flex-wrap gap-3">
+                {areaPages.map((page) => (
+                  <Link
+                    key={`${page.city}-${page.topic}`}
+                    href={`/${page.city}/${page.topic}`}
+                    className="px-4 py-2 rounded-xl bg-white border border-slate-200 text-sm font-medium text-slate-700 hover:border-cyan-300 hover:bg-cyan-50 transition-colors"
+                  >
+                    {page.h1[lang]}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
 
           <div className="mb-8">
             <Link href="/services" className="text-cyan-900 font-medium hover:text-primary transition-colors">

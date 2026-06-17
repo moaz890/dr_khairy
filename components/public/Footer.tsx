@@ -7,6 +7,7 @@ import { Phone, MapPin, ExternalLink, MessageCircle } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { clinics } from "@/lib/data/clinics";
 import { footerServiceLinks } from "@/lib/data/navigation";
+import { localPages } from "@/lib/data/local-pages";
 import { whatsappUrl } from "@/lib/constants/whatsapp";
 import SocialLinks from "@/components/public/SocialLinks";
 
@@ -21,10 +22,15 @@ export default function Footer() {
     { href: "/contact", label: t.nav.contact },
   ];
 
+  const localLinks = localPages.map((page) => ({
+    href: `/${page.city}/${page.topic}`,
+    label: page.h1,
+  }));
+
   return (
     <footer className="bg-slate-900 text-slate-300">
       <div className="site-container py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-4">
               {logoError ? (
@@ -87,7 +93,23 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">{t.footer.contact}</h3>
+            <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">{t.footer.localAreas}</h3>
+            <ul className="space-y-2.5">
+              {localLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-slate-400 hover:text-amber-400 transition-colors flex items-center gap-1.5"
+                  >
+                    <span className="bullet-sm" />
+                    {link.label[lang]}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
             <ul className="space-y-4">
               {clinics.map((clinic) => (
                 <li key={clinic.id}>

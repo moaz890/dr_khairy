@@ -72,4 +72,26 @@ export const sleepBreathingEnrichment: EnrichedMap = {
     ],
     readMinutes: 7,
   },
+  "is-snoring-dangerous": {
+    excerpt: {
+      en: "Snoring is not always harmless. Loud habitual snoring with breathing pauses may signal obstructive sleep apnoea — a serious cardiovascular risk.",
+      ar: "الشخير ليس دائماً بريئاً. الشخير العالي المتكرر مع توقف التنفس قد يشير لانقطاع النفس الانسدادي — خطر قلبي وعائي خطير.",
+    },
+    body: [
+      {
+        en: "Primary snoring occurs without oxygen drops or sleep fragmentation. It disturbs partners but carries lower medical risk. However, loud snoring with witnessed apnoeas, gasping, or daytime sleepiness suggests obstructive sleep apnoea (OSA).",
+        ar: "الشخير الأولي يحدث دون انخفاض أكسجين أو تفتت نوم. يزعج الشريك لكنه خطر طبي أقل. لكن الشخير العالي مع انقطاع ملحوظ أو شهيق أو نعاس نهاري يشير لانقطاع النفس الانسدادي.",
+      },
+      {
+        en: "Untreated OSA increases hypertension, atrial fibrillation, stroke, and type 2 diabetes risk. Daytime sleepiness raises motor vehicle accident rates. A sleep study confirms diagnosis and severity.",
+        ar: "انقطاع النفس غير المعالج يزيد خطر ارتفاع الضغط والرجفان الأذيني والسكتة والسكري النوع ٢. النعاس النهاري يرفع حوادث المركبات. دراسة النوم تؤكد التشخيص والشدة.",
+      },
+      {
+        en: "Treatment ranges from weight loss and nasal surgery to CPAP and oral appliances. Even simple snoring benefits from nasal obstruction evaluation — septoplasty often reduces snore intensity.",
+        ar: "العلاج من فقدان الوزن وجراحة الأنف إلى CPAP والأجهزة الفموية. حتى الشخير البسيط يستفيد من تقييم انسداد الأنف — عملية الحاجز غالباً تقلل شدة الشخير.",
+      },
+      { en: cta.en, ar: cta.ar },
+    ],
+    readMinutes: 8,
+  },
 };

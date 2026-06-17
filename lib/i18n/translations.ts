@@ -122,6 +122,11 @@ export const translations = {
       hours: "Working Hours",
       detailDesc: "Prof. Dr. Mohammed Rabea Khairy offers ENT consultations, rhinoplasty assessments, and follow-up care at this location. Book via WhatsApp for appointment availability.",
       viewServices: "View all ENT services",
+      localPages: "Services in this area",
+    },
+    localPage: {
+      viewClinicDetails: "View clinic details & directions",
+      learnMoreAbout: "Learn more about",
     },
     blogArticle: {
       relatedService: "Related Service",
@@ -267,6 +272,7 @@ export const translations = {
       desc: "Prof. Dr. Mohammed Rabea Khairy — Consultant ENT surgeon and rhinoplasty specialist at Cairo University, offering advanced surgical care at clinics in New Cairo and Zagazig.",
       quickLinks: "Quick Links",
       specialties: "Specialties",
+      localAreas: "Local Services",
       contact: "Contact",
       copyright: "All rights reserved.",
       disclaimer: "Medical information provided for educational purposes only. Always consult your physician.",
@@ -432,6 +438,11 @@ export const translations = {
       hours: "مواعيد العمل",
       detailDesc: "يقدم أ.د. محمد ربيع خيري استشارات الأنف والأذن والحنجرة وتقييمات تجميل الأنف والمتابعة في هذا الفرع. احجز عبر واتساب للاطلاع على المواعيد المتاحة.",
       viewServices: "عرض جميع الخدمات",
+      localPages: "خدمات في هذه المنطقة",
+    },
+    localPage: {
+      viewClinicDetails: "تفاصيل العيادة والاتجاهات",
+      learnMoreAbout: "اعرف المزيد عن",
     },
     blogArticle: {
       relatedService: "الخدمة ذات الصلة",
@@ -577,6 +588,7 @@ export const translations = {
       desc: "الأستاذ الدكتور محمد ربيع خيري — استشاري الأنف والأذن والحنجرة ومتخصص تجميل الأنف بجامعة القاهرة، يقدم رعاية جراحية متقدمة في عيادات التجمع الخامس والزقازيق.",
       quickLinks: "روابط سريعة",
       specialties: "التخصصات",
+      localAreas: "خدمات محلية",
       contact: "التواصل",
       copyright: "جميع الحقوق محفوظة.",
       disclaimer: "المعلومات الطبية مقدمة لأغراض تعليمية فقط. استشر طبيبك دائماً.",

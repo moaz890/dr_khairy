@@ -1,5 +1,6 @@
 import { initialBlogPosts, mythFacts } from "./initial-posts";
 import { extendedBlogPosts } from "./posts-extended";
+import { targetedBlogPosts } from "./posts-targeted";
 import { applyBlogEnrichment } from "./enriched/apply";
 
 export type {
@@ -16,6 +17,7 @@ export { createBlogPost, bodyFromTopic, defaultCta } from "./factory";
 export const blogPosts = [
   ...initialBlogPosts,
   ...applyBlogEnrichment(extendedBlogPosts),
+  ...applyBlogEnrichment(targetedBlogPosts),
 ];
 
 export function getBlogPostBySlug(slug: string) {

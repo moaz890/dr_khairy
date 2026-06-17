@@ -268,7 +268,7 @@ export const servicePages: ServicePage[] = [
       },
     ],
     relatedSlugs: ["nasal-obstruction", "functional-rhinoplasty", "rhinoplasty"],
-    relatedBlogSlugs: ["deviated-septum-signs", "rhinoplasty-egypt-guide"],
+    relatedBlogSlugs: ["deviated-septum-signs", "rhinoplasty-egypt-guide", "deviated-septum-headaches"],
     showBeforeAfterLink: false,
   },
   {
@@ -950,7 +950,7 @@ export const servicePages: ServicePage[] = [
       },
     ],
     relatedSlugs: ["tonsillectomy", "snoring", "ear-infection"],
-    relatedBlogSlugs: ["child-tonsillectomy", "ventilation-tubes-guide"],
+    relatedBlogSlugs: ["child-tonsillectomy", "ventilation-tubes-guide", "adenoids-affect-hearing"],
     showBeforeAfterLink: false,
   },
   {
@@ -1136,7 +1136,7 @@ export const servicePages: ServicePage[] = [
       },
     ],
     relatedSlugs: ["sleep-apnea", "nasal-obstruction", "septoplasty"],
-    relatedBlogSlugs: ["snoring-vs-sleep-apnea", "deviated-septum-signs"],
+    relatedBlogSlugs: ["snoring-vs-sleep-apnea", "deviated-septum-signs", "is-snoring-dangerous"],
     showBeforeAfterLink: false,
   },
   {

@@ -492,6 +492,75 @@ export const seoPages = {
     priority: 0.9,
     changeFrequency: "monthly",
   },
+  // ── Local SEO landing pages ──
+  "local/cairo-rhinoplasty": {
+    path: "/cairo/rhinoplasty",
+    title: {
+      ar: "تجميل الأنف في القاهرة | د. ربيع خيري — التجمع الخامس",
+      en: "Rhinoplasty in Cairo | Dr. Rabea Khairy — New Cairo",
+    },
+    description: {
+      ar: "عملية تجميل الأنف في القاهرة الجديدة مع أ.د. محمد ربيع خيري — نتائج طبيعية، تجميل وظيفي، وتصحيح عمليات سابقة. عيادة التجمع الخامس. احجز واتساب 01124427427.",
+      en: "Rhinoplasty in New Cairo with Prof. Dr. Mohammed Rabea Khairy — natural results, functional surgery, revision cases. 5th Settlement clinic. Book WhatsApp: 01124427427.",
+    },
+    keywords: {
+      ar: ["تجميل الأنف في القاهرة", "دكتور تجميل أنف التجمع الخامس", "عملية الأنف القاهرة الجديدة"],
+      en: ["rhinoplasty Cairo", "nose job New Cairo", "rhinoplasty 5th settlement"],
+    },
+    priority: 0.85,
+    changeFrequency: "monthly",
+  },
+  "local/cairo-ent-specialist": {
+    path: "/cairo/ent-specialist",
+    title: {
+      ar: "دكتور أنف وأذن وحنجرة في القاهرة | د. ربيع خيري",
+      en: "ENT Specialist in Cairo | Dr. Rabea Khairy — New Cairo",
+    },
+    description: {
+      ar: "استشاري أنف وأذن وحنجرة في التجمع الخامس — جراحة الجيوب، الحاجز الأنفي، ضعف السمع، اللوز، والشخير. أ.د. محمد ربيع خيري. حجز 01124427427.",
+      en: "ENT specialist in 5th Settlement, New Cairo — sinus surgery, septoplasty, hearing loss, tonsils, snoring. Prof. Dr. Mohammed Rabea Khairy. Book: 01124427427.",
+    },
+    keywords: {
+      ar: ["دكتور أنف وأذن وحنجرة القاهرة", "أخصائي أنف وأذن التجمع الخامس", "عيادة أنف أذن حنجرة"],
+      en: ["ENT specialist Cairo", "ENT doctor New Cairo", "ear nose throat Cairo"],
+    },
+    priority: 0.85,
+    changeFrequency: "monthly",
+  },
+  "local/zagazig-rhinoplasty": {
+    path: "/zagazig/rhinoplasty",
+    title: {
+      ar: "تجميل الأنف في الزقازيق | د. ربيع خيري — الشرقية",
+      en: "Rhinoplasty in Zagazig | Dr. Rabea Khairy — Sharqia",
+    },
+    description: {
+      ar: "عملية تجميل الأنف في الزقازيق مع أ.د. محمد ربيع خيري — تجميل تجميلي ووظيفي للمرضى في الشرقية وشرق الدلتا. ميدان الصاغة. واتساب 01124427427.",
+      en: "Rhinoplasty in Zagazig with Prof. Dr. Khairy — cosmetic and functional nose surgery for Sharqia and Eastern Delta patients. Medan Al-Sagha. WhatsApp: 01124427427.",
+    },
+    keywords: {
+      ar: ["تجميل الأنف في الزقازيق", "دكتور تجميل أنف الشرقية", "عملية أنف الزقازيق"],
+      en: ["rhinoplasty Zagazig", "nose surgery Sharqia", "rhinoplasty Eastern Delta"],
+    },
+    priority: 0.85,
+    changeFrequency: "monthly",
+  },
+  "local/zagazig-sinus-surgery": {
+    path: "/zagazig/sinus-surgery",
+    title: {
+      ar: "عملية الجيوب الأنفية في الزقازيق | د. ربيع خيري — FESS",
+      en: "Sinus Surgery in Zagazig | Dr. Rabea Khairy — FESS",
+    },
+    description: {
+      ar: "جراحة الجيوب الأنفية بالمنظار (FESS) في الزقازيق — علاج التهاب الجيوب المزمن والزوائد الأنفية. أ.د. محمد ربيع خيري. حجز واتساب 01124427427.",
+      en: "Endoscopic sinus surgery (FESS) in Zagazig — chronic sinusitis and nasal polyp treatment. Prof. Dr. Mohammed Rabea Khairy. WhatsApp: 01124427427.",
+    },
+    keywords: {
+      ar: ["عملية الجيوب الأنفية الزقازيق", "مناظير الجيوب الشرقية", "FESS الزقازيق"],
+      en: ["sinus surgery Zagazig", "FESS Sharqia", "sinus specialist Zagazig"],
+    },
+    priority: 0.85,
+    changeFrequency: "monthly",
+  },
 } as const satisfies Record<string, PageSeoConfig>;
 
 export type SeoPageKey = keyof typeof seoPages;
@@ -531,9 +600,17 @@ export const servicePageKeys = [
   "services/sleep-apnea",
 ] as const satisfies readonly SeoPageKey[];
 
+export const localPageKeys = [
+  "local/cairo-rhinoplasty",
+  "local/cairo-ent-specialist",
+  "local/zagazig-rhinoplasty",
+  "local/zagazig-sinus-surgery",
+] as const satisfies readonly SeoPageKey[];
+
 export const sitemapPageKeys = [
   ...corePageKeys,
   ...servicePageKeys,
+  ...localPageKeys,
   "clinics/cairo-fifth-settlement",
   "clinics/zagazig",
 ] as const;
