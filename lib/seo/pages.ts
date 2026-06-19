@@ -1,15 +1,15 @@
 import type { PageSeoConfig } from "./types";
 
 const serviceTitle = (nameAr: string, nameEn: string) => ({
-  ar: `${nameAr} | د. ربيع خيري — استشاري أنف وأذن وحنجرة`,
-  en: `${nameEn} | Dr. Rabea Khairy — ENT Specialist`,
+  ar: `${nameAr} | د. محمد ربيع خيري — استشاري أنف وأذن وحنجرة`,
+  en: `${nameEn} | Dr. Mohammed Rabea Khairy — ENT Specialist`,
 });
 
 export const seoPages = {
   home: {
     path: "/",
     title: {
-      ar: "د. ربيع خيري | استشاري الأنف والأذن والحنجرة وتجميل الأنف",
+      ar: "د. محمد ربيع خيري | استشاري الأنف والأذن والحنجرة وتجميل الأنف",
       en: "Prof. Dr. Mohammed Rabea Khairy | ENT & Rhinoplasty Specialist",
     },
     description: {
@@ -43,8 +43,8 @@ export const seoPages = {
   services: {
     path: "/services",
     title: {
-      ar: "خدمات الأنف والأذن والحنجرة | د. ربيع خيري",
-      en: "ENT Services | Dr. Rabea Khairy",
+      ar: "خدمات الأنف والأذن والحنجرة | د. محمد ربيع خيري",
+      en: "ENT Services | Dr. Mohammed Rabea Khairy",
     },
     description: {
       ar: "خدمات متكاملة في تجميل الأنف الوظيفي، الحاجز الأنفي، الجيوب الأنفية، الأذن، الحنجرة، واضطرابات النوم. استشارة مع أ.د. محمد ربيع خيري.",
@@ -60,8 +60,8 @@ export const seoPages = {
   blog: {
     path: "/blog",
     title: {
-      ar: "المدونة الطبية | مقالات أنف وأذن وحنجرة — د. ربيع خيري",
-      en: "Medical Blog | ENT Articles — Dr. Rabea Khairy",
+      ar: "المدونة الطبية | مقالات أنف وأذن وحنجرة — د. محمد ربيع خيري",
+      en: "Medical Blog | ENT Articles — Dr. Mohammed Rabea Khairy",
     },
     description: {
       ar: "مقالات طبية موثوقة عن تجميل الأنف، انحراف الحاجز، الجيوب الأنفية، وأمراض الأذن والحنجرة — بقلم أ.د. محمد ربيع خيري.",
@@ -77,8 +77,8 @@ export const seoPages = {
   beforeAfter: {
     path: "/before-after",
     title: {
-      ar: "نتائج تجميل الأنف قبل وبعد | د. ربيع خيري",
-      en: "Rhinoplasty Before & After Results | Dr. Rabea Khairy",
+      ar: "نتائج تجميل الأنف قبل وبعد | د. محمد ربيع خيري",
+      en: "Rhinoplasty Before & After Results | Dr. Mohammed Rabea Khairy",
     },
     description: {
       ar: "شاهد نتائج حقيقية لتجميل الأنف الوظيفي والتجميلي قبل وبعد العملية مع أ.د. محمد ربيع خيري — نتائج طبيعية مع الحفاظ على التنفس.",
@@ -94,8 +94,8 @@ export const seoPages = {
   testimonials: {
     path: "/testimonials",
     title: {
-      ar: "آراء المرضى | د. ربيع خيري — استشاري أنف وأذن وحنجرة",
-      en: "Patient Testimonials | Dr. Rabea Khairy",
+      ar: "آراء المرضى | د. محمد ربيع خيري — استشاري أنف وأذن وحنجرة",
+      en: "Patient Testimonials | Dr. Mohammed Rabea Khairy",
     },
     description: {
       ar: "اقرأ تجارب وآراء مرضى د. ربيع خيري في تجميل الأنف، جراحة الجيوب الأنفية، وعلاج اضطرابات الأنف والأذن والحنجرة.",
@@ -111,8 +111,8 @@ export const seoPages = {
   videos: {
     path: "/videos",
     title: {
-      ar: "فيديوهات طبية | أنف وأذن وحنجرة — د. ربيع خيري",
-      en: "Medical Videos | ENT Education — Dr. Rabea Khairy",
+      ar: "فيديوهات طبية | أنف وأذن وحنجرة — د. محمد ربيع خيري",
+      en: "Medical Videos | ENT Education — Dr. Mohammed Rabea Khairy",
     },
     description: {
       ar: "فيديوهات تعليمية وتوعوية عن تجميل الأنف، الجيوب الأنفية، واضطرابات الأنف والأذن والحنجرة — بإشراف أ.د. محمد ربيع خيري.",
@@ -128,8 +128,8 @@ export const seoPages = {
   clinics: {
     path: "/clinics",
     title: {
-      ar: "العيادات | د. ربيع خيري — التجمع الخامس والزقازيق",
-      en: "Clinic Locations | Dr. Rabea Khairy — New Cairo & Zagazig",
+      ar: "العيادات | د. محمد ربيع خيري — التجمع الخامس والزقازيق",
+      en: "Clinic Locations | Dr. Mohammed Rabea Khairy — New Cairo & Zagazig",
     },
     description: {
       ar: "عيادات د. ربيع خيري في التجمع الخامس (بجوار مستشفى الشفا) والزقازيق (ميدان الصاغة). حجز مواعيد على واتساب 01124427427.",
@@ -145,8 +145,8 @@ export const seoPages = {
   contact: {
     path: "/contact",
     title: {
-      ar: "اتصل بنا | حجز موعد د. ربيع خيري",
-      en: "Contact & Book Appointment | Dr. Rabea Khairy",
+      ar: "اتصل بنا | حجز موعد د. محمد ربيع خيري",
+      en: "Contact & Book Appointment | Dr. Mohammed Rabea Khairy",
     },
     description: {
       ar: "احجز موعدك مع أ.د. محمد ربيع خيري عبر واتساب أو الهاتف. عيادات في التجمع الخامس والزقازيق — 01124427427.",
@@ -162,8 +162,8 @@ export const seoPages = {
   conferences: {
     path: "/conferences",
     title: {
-      ar: "المؤتمرات والفعاليات الطبية | د. ربيع خيري",
-      en: "Medical Conferences & Events | Dr. Rabea Khairy",
+      ar: "المؤتمرات والفعاليات الطبية | د. محمد ربيع خيري",
+      en: "Medical Conferences & Events | Dr. Mohammed Rabea Khairy",
     },
     description: {
       ar: "مشاركات أ.د. محمد ربيع خيري في المؤتمرات والندوات الطبية المحلية والدولية في جراحة الأنف والأذن والحنجرة.",
@@ -179,8 +179,8 @@ export const seoPages = {
   workshop: {
     path: "/workshop",
     title: {
-      ar: "ورشة عمل | د. ربيع خيري",
-      en: "Workshop | Dr. Rabea Khairy",
+      ar: "ورشة عمل | د. محمد ربيع خيري",
+      en: "Workshop | Dr. Mohammed Rabea Khairy",
     },
     description: {
       ar: "ورش عمل ودورات تدريبية في جراحة الأنف والأذن والحنجرة.",
@@ -461,8 +461,8 @@ export const seoPages = {
   "clinics/cairo-fifth-settlement": {
     path: "/clinics/cairo-fifth-settlement",
     title: {
-      ar: "عيادة أنف وأذن وحنجرة التجمع الخامس | د. ربيع خيري",
-      en: "ENT Clinic — 5th Settlement, New Cairo | Dr. Rabea Khairy",
+      ar: "عيادة أنف وأذن وحنجرة التجمع الخامس | د. محمد ربيع خيري",
+      en: "ENT Clinic — 5th Settlement, New Cairo | Dr. Mohammed Rabea Khairy",
     },
     description: {
       ar: "عيادة د. ربيع خيري في التجمع الخامس (مركز القاهرة الطبي بجوار مستشفى الشفا) — حجز مواعيد على واتساب 01124427427.",
@@ -478,8 +478,8 @@ export const seoPages = {
   "clinics/zagazig": {
     path: "/clinics/zagazig",
     title: {
-      ar: "عيادة أنف وأذن وحنجرة الزقازيق | د. ربيع خيري",
-      en: "ENT Clinic — Zagazig | Dr. Rabea Khairy",
+      ar: "عيادة أنف وأذن وحنجرة الزقازيق | د. محمد ربيع خيري",
+      en: "ENT Clinic — Zagazig | Dr. Mohammed Rabea Khairy",
     },
     description: {
       ar: "عيادة د. ربيع خيري في الزقازيق (ميدان الصاغة قرب الكوبري العلوي) — حجز مواعيد على واتساب 01124427427.",
@@ -496,8 +496,8 @@ export const seoPages = {
   "local/cairo-rhinoplasty": {
     path: "/cairo/rhinoplasty",
     title: {
-      ar: "تجميل الأنف في القاهرة | د. ربيع خيري — التجمع الخامس",
-      en: "Rhinoplasty in Cairo | Dr. Rabea Khairy — New Cairo",
+      ar: "تجميل الأنف في القاهرة | د. محمد ربيع خيري — التجمع الخامس",
+      en: "Rhinoplasty in Cairo | Dr. Mohammed Rabea Khairy — New Cairo",
     },
     description: {
       ar: "عملية تجميل الأنف في القاهرة الجديدة مع أ.د. محمد ربيع خيري — نتائج طبيعية، تجميل وظيفي، وتصحيح عمليات سابقة. عيادة التجمع الخامس. احجز واتساب 01124427427.",
@@ -513,8 +513,8 @@ export const seoPages = {
   "local/cairo-ent-specialist": {
     path: "/cairo/ent-specialist",
     title: {
-      ar: "دكتور أنف وأذن وحنجرة في القاهرة | د. ربيع خيري",
-      en: "ENT Specialist in Cairo | Dr. Rabea Khairy — New Cairo",
+      ar: "دكتور أنف وأذن وحنجرة في القاهرة | د. محمد ربيع خيري",
+      en: "ENT Specialist in Cairo | Dr. Mohammed Rabea Khairy — New Cairo",
     },
     description: {
       ar: "استشاري أنف وأذن وحنجرة في التجمع الخامس — جراحة الجيوب، الحاجز الأنفي، ضعف السمع، اللوز، والشخير. أ.د. محمد ربيع خيري. حجز 01124427427.",
@@ -530,8 +530,8 @@ export const seoPages = {
   "local/zagazig-rhinoplasty": {
     path: "/zagazig/rhinoplasty",
     title: {
-      ar: "تجميل الأنف في الزقازيق | د. ربيع خيري — الشرقية",
-      en: "Rhinoplasty in Zagazig | Dr. Rabea Khairy — Sharqia",
+      ar: "تجميل الأنف في الزقازيق | د. محمد ربيع خيري — الشرقية",
+      en: "Rhinoplasty in Zagazig | Dr. Mohammed Rabea Khairy — Sharqia",
     },
     description: {
       ar: "عملية تجميل الأنف في الزقازيق مع أ.د. محمد ربيع خيري — تجميل تجميلي ووظيفي للمرضى في الشرقية وشرق الدلتا. ميدان الصاغة. واتساب 01124427427.",
@@ -547,8 +547,8 @@ export const seoPages = {
   "local/zagazig-sinus-surgery": {
     path: "/zagazig/sinus-surgery",
     title: {
-      ar: "عملية الجيوب الأنفية في الزقازيق | د. ربيع خيري — FESS",
-      en: "Sinus Surgery in Zagazig | Dr. Rabea Khairy — FESS",
+      ar: "عملية الجيوب الأنفية في الزقازيق | د. محمد ربيع خيري — FESS",
+      en: "Sinus Surgery in Zagazig | Dr. Mohammed Rabea Khairy — FESS",
     },
     description: {
       ar: "جراحة الجيوب الأنفية بالمنظار (FESS) في الزقازيق — علاج التهاب الجيوب المزمن والزوائد الأنفية. أ.د. محمد ربيع خيري. حجز واتساب 01124427427.",

@@ -18,8 +18,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return buildMetadata({
     path: `/videos/${slug}`,
     title: {
-      ar: `${video.title.ar} | د. ربيع خيري`,
-      en: `${video.title.en} | Dr. Rabea Khairy`,
+      ar: `${video.title.ar} | د. محمد ربيع خيري`,
+      en: `${video.title.en} | Dr. Mohammed Rabea Khairy`,
     },
     description: video.description,
     priority: 0.6,

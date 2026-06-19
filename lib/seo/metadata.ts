@@ -117,8 +117,8 @@ export function createBlogArticleMetadata(options: {
   return buildMetadata({
     path: `/blog/${options.slug}`,
     title: {
-      ar: `${options.title.ar} | مدونة د. ربيع خيري`,
-      en: `${options.title.en} | Dr. Rabea Khairy Blog`,
+      ar: `${options.title.ar} | مدونة د. محمد ربيع خيري`,
+      en: `${options.title.en} | Dr. Mohammed Rabea Khairy Blog`,
     },
     description: options.description,
     priority: 0.7,

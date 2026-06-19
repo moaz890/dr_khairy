@@ -5,11 +5,11 @@ export const siteConfig = {
     en: "Prof. Dr. Mohammed Rabea Khairy",
   },
   shortName: {
-    ar: "د. ربيع خيري",
-    en: "Dr. Rabea Khairy",
+    ar: "د. محمد ربيع خيري",
+    en: "Dr. Mohammed Rabea Khairy",
   },
   defaultTitle: {
-    ar: "د. ربيع خيري | استشاري الأنف والأذن والحنجرة وتجميل الأنف",
+    ar: "د. محمد ربيع خيري | استشاري الأنف والأذن والحنجرة وتجميل الأنف",
     en: "Prof. Dr. Mohammed Rabea Khairy | ENT & Rhinoplasty Specialist",
   },
   defaultDescription: {
