@@ -15,5 +15,9 @@ export {
   buildPhysicianSchema,
   buildMedicalWebPageSchema,
   buildArticleSchema,
+  buildMedicalProcedureSchema,
 } from "./schema";
+export { getServicePath, getLocalPagePath } from "./routes";
 export type { PageSeoConfig, LocalizedText, SitemapEntry } from "./types";
+
+

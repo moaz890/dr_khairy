@@ -31,6 +31,7 @@ import { videos } from "@/lib/data/videos";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import SocialLinks from "@/components/public/SocialLinks";
 import SectionPhotoBackground from "@/components/public/SectionPhotoBackground";
+import { getServicePath } from "@/lib/seo";
 
 const statIcons: Record<string, React.ElementType> = {
   Calendar,
@@ -272,7 +273,7 @@ export default function HomePageContent() {
               const service = getServiceBySlug(slug);
               if (!service) return null;
               return (
-                <Link key={slug} href={`/services/${slug}`} className="card-premium p-6 group hover:border-cyan-300 transition-colors">
+                <Link key={slug} href={getServicePath(slug)} className="card-premium p-6 group hover:border-cyan-300 transition-colors">
                   <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-cyan-800 transition-colors">
                     {service.h1[lang]}
                   </h3>

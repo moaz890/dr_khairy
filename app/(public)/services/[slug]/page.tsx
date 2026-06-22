@@ -1,7 +1,13 @@
 import { notFound } from "next/navigation";
 import JsonLd from "@/components/seo/JsonLd";
-import { getServiceBySlug, serviceSlugs } from "@/lib/data/service-pages";
-import { buildFaqPageSchema, buildBreadcrumbSchema, buildMedicalWebPageSchema } from "@/lib/seo/schema";
+import { getServiceBySlug } from "@/lib/data/service-pages";
+import {
+  buildFaqPageSchema,
+  buildBreadcrumbSchema,
+  buildMedicalWebPageSchema,
+  buildMedicalProcedureSchema,
+  getServicePath,
+} from "@/lib/seo";
 import { siteConfig } from "@/lib/seo/config";
 import ServicePageContent from "@/components/public/ServicePageContent";
 
@@ -22,7 +28,8 @@ export default async function ServicePage({ params }: Props) {
     notFound();
   }
 
-  const pageUrl = `${siteConfig.url}/services/${slug}`;
+  const servicePath = getServicePath(slug);
+  const pageUrl = `${siteConfig.url}${servicePath}`;
 
   const breadcrumbSchema = buildBreadcrumbSchema([
     { name: "الرئيسية", url: siteConfig.url },
@@ -35,6 +42,11 @@ export default async function ServicePage({ params }: Props) {
       <JsonLd
         data={[
           buildMedicalWebPageSchema({
+            name: service.h1.ar,
+            description: service.intro.ar,
+            url: pageUrl,
+          }),
+          buildMedicalProcedureSchema({
             name: service.h1.ar,
             description: service.intro.ar,
             url: pageUrl,

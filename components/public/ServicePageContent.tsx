@@ -7,6 +7,7 @@ import { getServiceBySlug } from "@/lib/data/service-pages";
 import { getBlogPostBySlug } from "@/lib/data/blog";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import Breadcrumbs from "./Breadcrumbs";
+import { getServicePath } from "@/lib/seo";
 import PageHero from "./PageHero";
 import ContactCTA from "./ContactCTA";
 
@@ -111,7 +112,7 @@ export default function ServicePageContent({ service }: ServicePageContentProps)
                 {relatedServices.map((rel) => (
                   <Link
                     key={rel.slug}
-                    href={`/services/${rel.slug}`}
+                    href={getServicePath(rel.slug)}
                     className="px-4 py-2 rounded-xl bg-white border border-slate-200 text-sm font-medium text-slate-700 hover:border-cyan-300 hover:bg-cyan-50 transition-colors"
                   >
                     {rel.h1[lang]}

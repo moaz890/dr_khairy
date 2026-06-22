@@ -10,6 +10,7 @@ import { serviceNavGroups } from "@/lib/data/navigation";
 import { whatsappUrl } from "@/lib/constants/whatsapp";
 import LanguageSwitcher from "./LanguageSwitcher";
 import NavbarLogo from "./NavbarLogo";
+import { getServicePath } from "@/lib/seo";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -121,7 +122,7 @@ export default function Navbar() {
                         {group.links.map((link) => (
                           <li key={link.slug}>
                             <Link
-                              href={`/services/${link.slug}`}
+                              href={getServicePath(link.slug)}
                               className="text-sm text-slate-700 hover:text-cyan-800 hover:bg-cyan-50 px-2 py-1.5 rounded-lg block transition-colors"
                               onClick={() => setServicesOpen(false)}
                             >
@@ -198,7 +199,7 @@ export default function Navbar() {
                 {group.links.map((link) => (
                   <Link
                     key={link.slug}
-                    href={`/services/${link.slug}`}
+                    href={getServicePath(link.slug)}
                     className="block px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 rounded-lg"
                   >
                     {link.label[lang]}

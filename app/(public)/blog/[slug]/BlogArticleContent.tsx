@@ -8,6 +8,7 @@ import { useLanguage } from "@/lib/i18n/LanguageContext";
 import Breadcrumbs from "@/components/public/Breadcrumbs";
 import ContactCTA from "@/components/public/ContactCTA";
 import SectionPhotoBackground from "@/components/public/SectionPhotoBackground";
+import { getServicePath } from "@/lib/seo";
 
 interface BlogArticleContentProps {
   slug: string;
@@ -83,7 +84,7 @@ export default function BlogArticleContent({ slug }: BlogArticleContentProps) {
                 {t.blogArticle.relatedService}
               </p>
               <Link
-                href={`/services/${primaryService.slug}`}
+                href={getServicePath(primaryService.slug)}
                 className="text-lg font-bold text-cyan-900 hover:text-primary transition-colors inline-flex items-center gap-2"
               >
                 {primaryService.h1[lang]}
@@ -103,7 +104,7 @@ export default function BlogArticleContent({ slug }: BlogArticleContentProps) {
                     svc && (
                       <Link
                         key={svc.slug}
-                        href={`/services/${svc.slug}`}
+                        href={getServicePath(svc.slug)}
                         className="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-sm text-slate-600 hover:border-cyan-300 transition-colors"
                       >
                         {svc.h1[lang]}

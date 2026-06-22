@@ -210,3 +210,38 @@ export function buildMedicalWebPageSchema(options: {
     },
   };
 }
+
+export function buildMedicalProcedureSchema(options: {
+  name: string;
+  description: string;
+  url: string;
+  bodyLocation?: string;
+}): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "MedicalProcedure",
+    name: options.name,
+    description: options.description,
+    procedureType: "SurgicalProcedure",
+    outcome: {
+      "@type": "MedicalEntity",
+      name: "علاج الأعراض وتحسين الوظيفة الحيوية والمظهر الجمالي",
+    },
+    preparation: {
+      "@type": "MedicalEntity",
+      name: "فحوصات الدم الكاملة، الصيام لمدة 8 ساعات قبل التخدير العام، استشارة الطبيب لتعديل جرعات الأدوية المستمرة",
+    },
+    followup: {
+      "@type": "MedicalEntity",
+      name: "المتابعة مع الجراح خلال 7-10 أيام، تجنب المجهود البدني الشاق لمدة أسبوعين، الالتزام بالبخاخات والعلاجات الموصوفة",
+    },
+    bodyLocation: options.bodyLocation ?? "الأنف والأذن والحنجرة",
+    url: options.url,
+    provider: {
+      "@type": "Physician",
+      name: doctorProfile.name.ar,
+      url: `${siteConfig.url}/about`,
+    },
+  };
+}
+

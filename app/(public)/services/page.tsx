@@ -9,6 +9,7 @@ import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { cn } from "@/lib/utils";
 import { whatsappUrl } from "@/lib/constants/whatsapp";
 import SectionPhotoBackground from "@/components/public/SectionPhotoBackground";
+import { getServicePath } from "@/lib/seo";
 
 const categoryIcons: Record<string, React.ElementType> = { Activity, Stethoscope, Heart };
 
@@ -147,7 +148,7 @@ export default function ServicesPage() {
             {serviceNavGroups.flatMap((g) => g.links).map((link) => (
               <Link
                 key={link.slug}
-                href={`/services/${link.slug}`}
+                href={getServicePath(link.slug)}
                 className="px-4 py-3 rounded-xl border border-slate-200 bg-white text-sm font-medium text-slate-700 hover:border-cyan-300 hover:bg-cyan-50 transition-colors text-center"
               >
                 {link.label[lang]}

@@ -10,6 +10,7 @@ import { useLanguage } from "@/lib/i18n/LanguageContext";
 import Breadcrumbs from "./Breadcrumbs";
 import PageHero from "./PageHero";
 import ContactCTA from "./ContactCTA";
+import { getServicePath } from "@/lib/seo";
 
 interface LocalPageContentProps {
   page: LocalPage;
@@ -82,7 +83,7 @@ export default function LocalPageContent({ page }: LocalPageContentProps) {
           {primaryService && (
             <div className="mb-12">
               <Link
-                href={`/services/${primaryService.slug}`}
+                href={getServicePath(primaryService.slug)}
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-cyan-900 text-white font-medium hover:bg-cyan-800 transition-colors"
               >
                 {t.localPage.learnMoreAbout} {primaryService.h1[lang]}
@@ -122,7 +123,7 @@ export default function LocalPageContent({ page }: LocalPageContentProps) {
                 {relatedServices.map((rel) => (
                   <Link
                     key={rel!.slug}
-                    href={`/services/${rel!.slug}`}
+                    href={getServicePath(rel!.slug)}
                     className="px-4 py-2 rounded-xl bg-white border border-slate-200 text-sm font-medium text-slate-700 hover:border-cyan-300 hover:bg-cyan-50 transition-colors"
                   >
                     {rel!.h1[lang]}

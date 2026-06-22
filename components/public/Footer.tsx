@@ -10,6 +10,7 @@ import { footerServiceLinks } from "@/lib/data/navigation";
 import { localPages } from "@/lib/data/local-pages";
 import { whatsappUrl } from "@/lib/constants/whatsapp";
 import SocialLinks from "@/components/public/SocialLinks";
+import { getServicePath, getLocalPagePath } from "@/lib/seo";
 
 export default function Footer() {
   const [logoError, setLogoError] = useState(false);
@@ -23,7 +24,7 @@ export default function Footer() {
   ];
 
   const localLinks = localPages.map((page) => ({
-    href: `/${page.city}/${page.topic}`,
+    href: getLocalPagePath(page.city, page.topic),
     label: page.h1,
   }));
 
@@ -81,7 +82,7 @@ export default function Footer() {
               {footerServiceLinks.map((link) => (
                 <li key={link.slug}>
                   <Link
-                    href={`/services/${link.slug}`}
+                    href={getServicePath(link.slug)}
                     className="text-sm text-slate-400 hover:text-amber-400 transition-colors flex items-center gap-1.5"
                   >
                     <span className="bullet-sm" />

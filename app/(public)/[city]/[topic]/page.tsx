@@ -9,7 +9,8 @@ import {
   buildFaqPageSchema,
   buildLocalBusinessSchema,
   buildMedicalWebPageSchema,
-} from "@/lib/seo/schema";
+  getLocalPagePath,
+} from "@/lib/seo";
 
 type Props = {
   params: Promise<{ city: string; topic: string }>;
@@ -27,7 +28,8 @@ export default async function LocalSeoPage({ params }: Props) {
     notFound();
   }
 
-  const url = `${siteConfig.url}/${city}/${topic}`;
+  const localPath = getLocalPagePath(city, topic);
+  const url = `${siteConfig.url}${localPath}`;
   const clinicIndex = clinics.findIndex((c) => c.slug === page.clinicSlug);
   const localBusinessSchemas = buildLocalBusinessSchema();
   const clinicSchema = localBusinessSchemas[clinicIndex] ?? localBusinessSchemas[0];

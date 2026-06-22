@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { beforeAfterCases } from "@/lib/data/before-after";
+import { getServicePath } from "@/lib/seo";
 import { beforeAfterVideos } from "@/lib/data/before-after-videos";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import Breadcrumbs from "@/components/public/Breadcrumbs";
@@ -76,7 +77,7 @@ export default function BeforeAfterPage() {
               ].map((link) => (
                 <Link
                   key={link.slug}
-                  href={`/services/${link.slug}`}
+                  href={getServicePath(link.slug)}
                   className="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-white border border-slate-200 text-sm font-medium text-slate-700 hover:border-cyan-300 hover:bg-cyan-50 transition-colors"
                 >
                   {link.label[lang]}

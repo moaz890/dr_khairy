@@ -17,7 +17,7 @@ export const seoPages = {
       en: "Professor of Medicine, ENT consultant and rhinoplasty specialist. Functional rhinoplasty and endoscopic sinus surgery. Clinics in New Cairo and Zagazig.",
     },
     keywords: {
-      ar: ["دكتور أنف وأذن وحنجرة مصر", "تجميل الأنف", "دكتور ربيع خيري"],
+      ar: ["دكتور أنف وأذن وحنجرة مصر", "تجميل الأنف", "دكتور محمد ربيع خيري"],
       en: ["ENT specialist Egypt", "Rhinoplasty Egypt", "Dr Mohammed Rabea Khairy"],
     },
     priority: 1.0,
@@ -153,7 +153,7 @@ export const seoPages = {
       en: "Book your appointment with Prof. Dr. Mohammed Rabea Khairy via WhatsApp or phone. Clinics in New Cairo and Zagazig — 01124427427.",
     },
     keywords: {
-      ar: ["حجز موعد دكتور ربيع خيري", "حجز تجميل الأنف"],
+      ar: ["حجز موعد دكتور محمد ربيع خيري", "حجز تجميل الأنف"],
       en: ["book ENT appointment Egypt", "rhinoplasty consultation Cairo"],
     },
     priority: 0.9,
@@ -192,7 +192,7 @@ export const seoPages = {
   },
   // ── Service pages ──
   "services/rhinoplasty": {
-    path: "/services/rhinoplasty",
+    path: "/عملية-تجميل-الأنف",
     title: serviceTitle("عملية تجميل الأنف في مصر", "Rhinoplasty in Egypt"),
     description: {
       ar: "تجميل الأنف في مصر مع أ.د. محمد ربيع خيري — نتائج طبيعية متناسقة مع ملامح الوجه مع الحفاظ على وظيفة التنفس.",
@@ -206,7 +206,7 @@ export const seoPages = {
     changeFrequency: "monthly",
   },
   "services/functional-rhinoplasty": {
-    path: "/services/functional-rhinoplasty",
+    path: "/تجميل-الأنف-الوظيفي",
     title: serviceTitle("تجميل الأنف الوظيفي", "Functional Rhinoplasty"),
     description: {
       ar: "تجميل الأنف الوظيفي — جمال التنفس معاً. تحسين شكل الأنف مع استعدال الحاجز وضمان التنفس السليم.",
@@ -220,7 +220,7 @@ export const seoPages = {
     changeFrequency: "monthly",
   },
   "services/revision-rhinoplasty": {
-    path: "/services/revision-rhinoplasty",
+    path: "/تصحيح-تجميل-الأنف",
     title: serviceTitle("تصحيح عملية تجميل الأنف", "Revision Rhinoplasty"),
     description: {
       ar: "تصحيح عملية تجميل الأنف السابقة مع متخصص في إصلاح العمليات الفاشلة — نتائج طبيعية واستعادة وظيفة التنفس.",
@@ -234,7 +234,7 @@ export const seoPages = {
     changeFrequency: "monthly",
   },
   "services/septoplasty": {
-    path: "/services/septoplasty",
+    path: "/عملية-الحاجز-الأنفي",
     title: serviceTitle("عملية الحاجز الأنفي المنحرف", "Septoplasty — Deviated Septum"),
     description: {
       ar: "عملية استعدال الحاجز الأنفي المنحرف لعلاج انسداد الأنف وصعوبة التنفس. تقييم شامل وجراحة دقيقة مع أ.د. ربيع خيري.",
@@ -248,7 +248,7 @@ export const seoPages = {
     changeFrequency: "monthly",
   },
   "services/nasal-obstruction": {
-    path: "/services/nasal-obstruction",
+    path: "/علاج-انسداد-الأنف",
     title: serviceTitle("علاج انسداد الأنف المزمن", "Nasal Obstruction Treatment"),
     description: {
       ar: "علاج انسداد الأنف المزمن — تشخيص الأسباب (حاجز منحرف، تضخم حطم، حساسية) وخطة علاج جراحية أو دوائية.",
@@ -262,7 +262,7 @@ export const seoPages = {
     changeFrequency: "monthly",
   },
   "services/nasal-polyps": {
-    path: "/services/nasal-polyps",
+    path: "/إزالة-الزوائد-الأنفية",
     title: serviceTitle("إزالة الزوائد الأنفية", "Nasal Polyp Removal"),
     description: {
       ar: "إزالة الزوائد الأنفية بالمنظار — علاج انسداد الأنف المزمن، فقدان الشم، والتهاب الجيوب الناتج عن الزوائد.",
@@ -276,7 +276,7 @@ export const seoPages = {
     changeFrequency: "monthly",
   },
   "services/sinus-surgery": {
-    path: "/services/sinus-surgery",
+    path: "/عملية-مناظير-الجيوب-الأنفية",
     title: serviceTitle("عملية مناظير الجيوب الأنفية", "Sinus Endoscopy (FESS)"),
     description: {
       ar: "عملية مناظير الجيوب الأنفية (FESS) — جراحة دقيقة بالمنظار لعلاج التهاب الجيوب المزمن وانسداد المجاري الأنفية.",
@@ -290,7 +290,7 @@ export const seoPages = {
     changeFrequency: "monthly",
   },
   "services/sinusitis": {
-    path: "/services/sinusitis",
+    path: "/علاج-التهاب-الجيوب-الأنفية",
     title: serviceTitle("علاج التهاب الجيوب الأنفية", "Sinusitis Treatment"),
     description: {
       ar: "علاج التهاب الجيوب الأنفية الحاد والمزمن — تشخيص دقيق، علاج دوائي، وجراحة منظارية عند الحاجة.",
@@ -304,7 +304,7 @@ export const seoPages = {
     changeFrequency: "monthly",
   },
   "services/allergic-rhinitis": {
-    path: "/services/allergic-rhinitis",
+    path: "/علاج-حساسية-الأنف",
     title: serviceTitle("علاج حساسية الأنف", "Allergic Rhinitis Treatment"),
     description: {
       ar: "علاج حساسية الأنف (الرينيت التحسسي) — خطة علاج شاملة تشمل الأدوية، تجنب المحفزات، والتدخل الجراحي عند اللزوم.",
@@ -318,7 +318,7 @@ export const seoPages = {
     changeFrequency: "monthly",
   },
   "services/tinnitus": {
-    path: "/services/tinnitus",
+    path: "/علاج-طنين-الأذن",
     title: serviceTitle("علاج طنين الأذن", "Tinnitus Treatment"),
     description: {
       ar: "علاج طنين الأذن — تشخيص الأسباب (أذن، أنف، أعصاب) وخطة علاج مخصصة مع أ.د. محمد ربيع خيري.",
@@ -332,7 +332,7 @@ export const seoPages = {
     changeFrequency: "monthly",
   },
   "services/hearing-loss": {
-    path: "/services/hearing-loss",
+    path: "/علاج-ضعف-السمع",
     title: serviceTitle("علاج ضعف السمع", "Hearing Loss Management"),
     description: {
       ar: "علاج ضعف السمع — تقييم شامل للأذن الوسطى والداخلية، علاج التهابات الأذن، وإدارة فقدان السمع المفاجئ.",
@@ -346,7 +346,7 @@ export const seoPages = {
     changeFrequency: "monthly",
   },
   "services/ear-infection": {
-    path: "/services/ear-infection",
+    path: "/علاج-التهاب-الأذن",
     title: serviceTitle("علاج التهاب الأذن", "Ear Infection Treatment"),
     description: {
       ar: "علاج التهاب الأذن الوسطى والخارجية عند الكبار والأطفال — تشخيص دقيق وعلاج فعال لمنع المضاعفات.",
@@ -360,7 +360,7 @@ export const seoPages = {
     changeFrequency: "monthly",
   },
   "services/vertigo": {
-    path: "/services/vertigo",
+    path: "/علاج-الدوار-والدوخة",
     title: serviceTitle("علاج الدوار والدوخة", "Vertigo & Dizziness Treatment"),
     description: {
       ar: "علاج الدوار والدوخة الناتجة عن اضطرابات الأذن الداخلية — تشخيص دقيق وعلاج مخصص.",
@@ -374,7 +374,7 @@ export const seoPages = {
     changeFrequency: "monthly",
   },
   "services/tonsillectomy": {
-    path: "/services/tonsillectomy",
+    path: "/عملية-استئصال-اللوزتين",
     title: serviceTitle("استئصال اللوزتين", "Tonsillectomy"),
     description: {
       ar: "استئصال اللوزتين — دواعي العملية، خطوات الجراحة، والتعافي. علاج التهاب اللوزتين المتكرر عند الكبار والأطفال.",
@@ -388,7 +388,7 @@ export const seoPages = {
     changeFrequency: "monthly",
   },
   "services/adenoidectomy": {
-    path: "/services/adenoidectomy",
+    path: "/عملية-اللحمية-للأطفال",
     title: serviceTitle("إزالة الغدد الأدينية", "Adenoidectomy"),
     description: {
       ar: "إزالة الغدد الأدينية عند الأطفال — علاج انسداد الأنف المزمن، الشخير، والتهابات الأذن المتكررة.",
@@ -402,7 +402,7 @@ export const seoPages = {
     changeFrequency: "monthly",
   },
   "services/hoarseness": {
-    path: "/services/hoarseness",
+    path: "/علاج-بحة-الصوت",
     title: serviceTitle("علاج بحة الصوت", "Hoarseness & Voice Treatment"),
     description: {
       ar: "علاج بحة الصوت والتهاب الحنجرة — تشخيص أسباب تغير الصوت وخطة علاج جراحية أو دوائية.",
@@ -416,7 +416,7 @@ export const seoPages = {
     changeFrequency: "monthly",
   },
   "services/swallowing-disorders": {
-    path: "/services/swallowing-disorders",
+    path: "/علاج-صعوبة-البلع",
     title: serviceTitle("علاج صعوبة البلع", "Swallowing Disorder Treatment"),
     description: {
       ar: "علاج صعوبة البلع — تقييم شامل للحلق والمريء وتحديد سبب Dysphagia وخطة العلاج المناسبة.",
@@ -430,7 +430,7 @@ export const seoPages = {
     changeFrequency: "monthly",
   },
   "services/snoring": {
-    path: "/services/snoring",
+    path: "/علاج-الشخير",
     title: serviceTitle("علاج الشخير", "Snoring Treatment"),
     description: {
       ar: "علاج الشخير جراحياً وغير جراحياً — تشخيص الأسباب (انسداد أنفي، لوز، لسان) وخطة علاج فعالة.",
@@ -444,7 +444,7 @@ export const seoPages = {
     changeFrequency: "monthly",
   },
   "services/sleep-apnea": {
-    path: "/services/sleep-apnea",
+    path: "/علاج-توقف-التنفس-أثناء-النوم",
     title: serviceTitle("علاج توقف التنفس أثناء النوم", "Sleep Apnea Treatment"),
     description: {
       ar: "علاج توقف التنفس أثناء النوم — تشخيص OSA وخيارات العلاج الجراحي وغير الجراحي مع متخصص ENT.",
@@ -494,7 +494,7 @@ export const seoPages = {
   },
   // ── Local SEO landing pages ──
   "local/cairo-rhinoplasty": {
-    path: "/cairo/rhinoplasty",
+    path: "/تجميل-الأنف-القاهرة",
     title: {
       ar: "تجميل الأنف في القاهرة | د. محمد ربيع خيري — التجمع الخامس",
       en: "Rhinoplasty in Cairo | Dr. Mohammed Rabea Khairy — New Cairo",
@@ -511,7 +511,7 @@ export const seoPages = {
     changeFrequency: "monthly",
   },
   "local/cairo-ent-specialist": {
-    path: "/cairo/ent-specialist",
+    path: "/دكتور-أنف-وأذن-التجمع-الخامس",
     title: {
       ar: "دكتور أنف وأذن وحنجرة في القاهرة | د. محمد ربيع خيري",
       en: "ENT Specialist in Cairo | Dr. Mohammed Rabea Khairy — New Cairo",
@@ -528,7 +528,7 @@ export const seoPages = {
     changeFrequency: "monthly",
   },
   "local/zagazig-rhinoplasty": {
-    path: "/zagazig/rhinoplasty",
+    path: "/تجميل-الأنف-الزقازيق",
     title: {
       ar: "تجميل الأنف في الزقازيق | د. محمد ربيع خيري — الشرقية",
       en: "Rhinoplasty in Zagazig | Dr. Mohammed Rabea Khairy — Sharqia",
@@ -545,7 +545,7 @@ export const seoPages = {
     changeFrequency: "monthly",
   },
   "local/zagazig-sinus-surgery": {
-    path: "/zagazig/sinus-surgery",
+    path: "/عملية-الجيوب-الأنفية-الزقازيق",
     title: {
       ar: "عملية الجيوب الأنفية في الزقازيق | د. محمد ربيع خيري — FESS",
       en: "Sinus Surgery in Zagazig | Dr. Mohammed Rabea Khairy — FESS",
