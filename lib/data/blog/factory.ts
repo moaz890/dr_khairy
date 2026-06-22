@@ -1,3 +1,4 @@
+import type { ServiceFaq } from "../service-pages";
 import type { BlogPost, BlogPostCategory, T } from "./types";
 import { categoryGradients } from "./types";
 
@@ -15,6 +16,7 @@ export interface BlogPostInput {
   primaryServiceSlug?: string;
   relatedServiceSlugs?: string[];
   relatedBlogSlugs?: string[];
+  faqs?: ServiceFaq[];
 }
 
 export function createBlogPost(input: BlogPostInput): BlogPost {
@@ -35,6 +37,7 @@ export function createBlogPost(input: BlogPostInput): BlogPost {
     primaryServiceSlug: input.primaryServiceSlug,
     relatedServiceSlugs: input.relatedServiceSlugs ?? [],
     relatedBlogSlugs: input.relatedBlogSlugs ?? [],
+    faqs: input.faqs,
   };
 }
 

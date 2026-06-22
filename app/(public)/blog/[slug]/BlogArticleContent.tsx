@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Clock } from "lucide-react";
+import { ArrowRight, Clock, HelpCircle } from "lucide-react";
 import { getBlogPostBySlug } from "@/lib/data/blog";
 import { getServiceBySlug } from "@/lib/data/service-pages";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
@@ -78,6 +78,65 @@ export default function BlogArticleContent({ slug }: BlogArticleContentProps) {
             ))}
           </div>
 
+          {/* E-E-A-T Medical Review & Author Block */}
+          <div className="border-t border-b border-slate-200 py-8 my-8">
+            <div className="flex flex-col md:flex-row gap-6 items-start">
+              <div className="w-16 h-16 rounded-full bg-cyan-900 text-white flex items-center justify-center font-bold text-xl flex-shrink-0">
+                MR
+              </div>
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-1 flex-wrap">
+                  <span className="bg-cyan-50 text-cyan-800 text-xs font-semibold px-2.5 py-0.5 rounded-full flex items-center gap-1 border border-cyan-100">
+                    {lang === "ar" ? "كاتب ومراجع طبي معتمد" : "Verified Medical Author"}
+                  </span>
+                </div>
+                <h4 className="text-lg font-bold text-slate-900 mb-1">
+                  {lang === "ar" ? "أ.د. محمد ربيع خيري" : "Prof. Dr. Mohammed Rabea Khairy"}
+                </h4>
+                <p className="text-slate-500 text-sm mb-3">
+                  {lang === "ar" 
+                    ? "أستاذ بكلية الطب - جامعة القاهرة | استشاري جراحات الأنف والأذن وتجميل الأنف" 
+                    : "Professor of Medicine - Cairo University | Consultant ENT & Rhinoplasty Surgeon"}
+                </p>
+                <p className="text-slate-600 text-sm leading-relaxed mb-4">
+                  {lang === "ar"
+                    ? "تمت مراجعة وكتابة هذا المحتوى الطبي بدقة بالاستناد إلى التوصيات والبروتوكولات السريرية المعتمدة لضمان توفير معلومات صحية دقيقة وموثوقة."
+                    : "This medical content has been carefully authored and reviewed based on evidence-based clinical guidelines to ensure accurate and reliable health information."}
+                </p>
+                
+                <div className="flex flex-wrap gap-4 text-sm font-semibold">
+                  <Link href="/about" className="text-cyan-800 hover:text-cyan-950 transition-colors inline-flex items-center gap-1">
+                    {lang === "ar" ? "السيرة الذاتية المهنية" : "Professional Biography"} &rarr;
+                  </Link>
+                  <Link href="/testimonials" className="text-cyan-800 hover:text-cyan-950 transition-colors inline-flex items-center gap-1">
+                    {lang === "ar" ? "آراء وتقييمات المرضى" : "Patient Reviews"}
+                  </Link>
+                  <Link href="/before-after" className="text-cyan-800 hover:text-cyan-950 transition-colors inline-flex items-center gap-1">
+                    {lang === "ar" ? "معرض الحالات قبل وبعد" : "Before & After Gallery"}
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Reputation & Social Channels */}
+            <div className="mt-6 pt-6 border-t border-dashed border-slate-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+              <span className="text-slate-500 text-xs font-semibold uppercase tracking-wider">
+                {lang === "ar" ? "القنوات المهنية المعتمدة:" : "Verified Audited Channels:"}
+              </span>
+              <div className="flex gap-4 text-slate-600 text-sm font-medium">
+                <a href="https://www.facebook.com/nosejob.rhinoplasty" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-850 transition-colors">
+                  {lang === "ar" ? "فيسبوك" : "Facebook"}
+                </a>
+                <a href="https://www.instagram.com/dr_mohamed_rabea" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-850 transition-colors">
+                  {lang === "ar" ? "انستغرام" : "Instagram"}
+                </a>
+                <a href="https://www.youtube.com/@mohamedrabea1" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-850 transition-colors">
+                  {lang === "ar" ? "يوتيوب" : "YouTube"}
+                </a>
+              </div>
+            </div>
+          </div>
+
           {primaryService && (
             <div className="card-premium p-6 mb-8">
               <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
@@ -135,6 +194,34 @@ export default function BlogArticleContent({ slug }: BlogArticleContentProps) {
                       </Link>
                     )
                 )}
+              </div>
+            </div>
+          )}
+
+          {post.faqs && post.faqs.length > 0 && (
+            <div className="mb-12">
+              <div className="flex items-center gap-2 mb-6">
+                <HelpCircle size={20} className="text-amber-600 animate-pulse" />
+                <h2 className="text-xl font-bold text-slate-900">
+                  {lang === "ar" ? "الأسئلة الشائعة والإجابات الطبية" : "Frequently Asked Questions & Answers"}
+                </h2>
+              </div>
+              <div className="space-y-4">
+                {post.faqs.map((faq) => (
+                  <details
+                    key={faq.question.en}
+                    className="group card-premium p-5 open:ring-2 open:ring-cyan-100 transition-all duration-300"
+                  >
+                    <summary className="font-semibold text-slate-900 cursor-pointer list-none flex items-center justify-between gap-4">
+                      {faq.question[lang]}
+                      <ArrowRight
+                        size={16}
+                        className="text-slate-400 group-open:rotate-90 transition-transform rtl-flip shrink-0"
+                      />
+                    </summary>
+                    <p className="mt-4 text-slate-600 text-sm leading-relaxed whitespace-pre-line">{faq.answer[lang]}</p>
+                  </details>
+                ))}
               </div>
             </div>
           )}

@@ -1,3 +1,5 @@
+import type { ServiceFaq } from "../service-pages";
+
 export type T = { en: string; ar: string };
 
 export type BlogCategoryKey =
@@ -25,6 +27,7 @@ export interface BlogPost {
   primaryServiceSlug?: string;
   relatedServiceSlugs: string[];
   relatedBlogSlugs: string[];
+  faqs?: ServiceFaq[];
 }
 
 export interface MythFact {
