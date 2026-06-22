@@ -24,7 +24,7 @@ const nextConfig: NextConfig = {
     return config;
   },
   async rewrites() {
-    return [
+    const rules = [
       // Service pages
       { source: "/عملية-تجميل-الأنف", destination: "/services/rhinoplasty" },
       { source: "/تجميل-الأنف-الوظيفي", destination: "/services/functional-rhinoplasty" },
@@ -52,6 +52,11 @@ const nextConfig: NextConfig = {
       { source: "/تجميل-الأنف-الزقازيق", destination: "/zagazig/rhinoplasty" },
       { source: "/عملية-الجيوب-الأنفية-الزقازيق", destination: "/zagazig/sinus-surgery" },
     ];
+
+    return rules.map((rule) => ({
+      ...rule,
+      source: encodeURI(rule.source),
+    }));
   },
 };
 
